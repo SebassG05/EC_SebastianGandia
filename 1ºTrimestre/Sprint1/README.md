@@ -268,7 +268,7 @@ El objetivo del ejercicio es crear una página web que  sea capaz de que cuando 
 
 ## Diseño de la Propuesta de Solución
 
-1. **HTML (ejercicio3.html)**: En el html he tenido que crear previamente llamado `ejercicio2.html` , he comenzado con la etructura básica utilizando el atajo html:5 donde dentro del body he puesto script donde dentro de el he puesto un src para enlazarlo con el archivo .js , el codigo cual ha quedado asi :**\<script src="Ejercicio2.js"></script>**. Después arriba de la etiqueta script he creado tres div en los cuales pedí achat gpet que me generara tres parrafos: 
+1. **HTML (ejercicio3.html)**: En el html he tenido que crear previamente llamado `ejercicio4.html` , he comenzado con la etructura básica utilizando el atajo html:5 donde dentro del body he puesto script donde dentro de el he puesto un src para enlazarlo con el archivo .js , el codigo cual ha quedado asi :**\<script src="Ejercicio4.js"></script>**. Después arriba de la etiqueta script he creado tres div en los cuales pedí achat gpet que me generara tres parrafos: 
 
 - **Pregunta 1:**  hazme tres parrafos
 
@@ -359,3 +359,85 @@ A continuación, se muestra un diagrama de flujo simple que explica el proceso d
 ```
 
 ![Descripción del GIF](Recursos/giftEjc4.gif)
+
+# Ejercicio 5:   Detección de Clics y Generación de XPath
+
+## Análisis del Problema
+
+El objetivo del ejercicio es crear una página web que  sea capaz de que al hacer clic en cualquier elemento, muestre el Xpath único de ese elemento en un cuadro de alerta o en una sección dedicada a la página.
+
+Especificaciones:
+
+1. Detección de Clics:
+   - Añade un evento de escucha a todo el documento (`document`) para detectar cualquier clic realizado.
+###
+   - Al detectar un clic, determina el elemento exacto que fue clickeado usando el objeto `event.target`.
+##
+2. Generación de XPath:
+   - Una vez identificado el elemento, genera su XPath.
+   ###
+  - Muestra el XPath generado en un cuadro de alerta o en una sección específica de la página.
+
+ Se entregarán dos archivos:
+
+- **ejercicio1.html**: Estructura de la página web.
+- **ejercicio1.js**: Funcionalidad de la página que al clicar en cualquier parte del documento de su XPath
+
+
+## Diseño de la Propuesta de Solución
+
+1. **HTML (ejercicio3.html)**: En el html he tenido que crear previamente llamado `ejercicio5.html` , he comenzado con la etructura básica utilizando el atajo html:5 donde dentro del body he puesto script donde dentro de el he puesto un src para enlazarlo con el archivo .js , el codigo cual ha quedado asi :**\<script src="Ejercicio2.js"></script>**. Después como única modificación del html he puesto un div para que sea la sesión dedicada de la página.
+
+###
+
+2. **JavaScript (ejercicio2.js)**: En este archivo .js tuve que recurrir al chat gpt: 
+
+- **Pregunta 1:** Este es mi html: "Codigo del HTML" no se puede modificar
+###
+- **Pregunta 2:** Tambien tengo un archivo .js llamado Ejercicio5.js
+###
+- **Pregunta 3:** Quiero hacer que al hacer un clic en cualquier documento de la pagina te de el Xpath , pero no quiero que entre en el iframe.Sin modificar el HTML
+###
+- **Pregunta 4:** Ahora quiero que como usuario que al clicar en el boton en el boton iframe me de su xpath sabiendo que es un segundo xpath metido en el iframe yb que al entrar se centre en el boton del iframe.
+
+### Diagrama de Flujo
+A continuación, se muestra un diagrama de flujo simple que explica el proceso del evento:
+
+```plaintext
++---------------------------+
+|      Página cargada       |
++---------------------------+
+             |
+             v
++---------------------------+
+|  Usuario hace clic en     |
+|  cualquier elemento       |
++---------------------------+
+             |
+             v
++---------------------------+
+|  Detectar clic usando     |
+|  'event.target'           |
++---------------------------+
+             |
+             v
++---------------------------+
+|  Generar XPath único      |
+|  del elemento clickeado   |
++---------------------------+
+             |
+             v
++---------------------------+
+|  Mostrar XPath en un      |
+|  cuadro de alerta o       |
+|  sección dedicada         |
++---------------------------+
+             |
+             v
++---------------------------+
+|  Esperar próximo clic     |
++---------------------------+
+```
+
+## Análisis del Problema
+![Descripción del GIF](Recursos/giftEjc5.gif)
