@@ -175,7 +175,7 @@ El objetivo del ejercicio es crear una página web que  sea capaz de que cuando 
 
 Para resolver el problema del primer ejercicio he tenido que hacer estos pasos:
 
-1. **HTML (ejercicio3.html)**: En el html he tenido que crear previamente llamado `ejercicio2.html` , he comenzado con la etructura básica utilizando el atajo html:5 donde dentro del body he puesto script donde dentro de el he puesto un src para enlazarlo con el archivo .js , el codigo cual ha quedado asi :**\<script src="Ejercicio2.js"></script>**. Después arriba de la etiqueta script he creado un input del tipo texto el cual ya sabía hacerlo del ejercicio anterior,después cree un boton con un id llamado `btnLista` y por ultimo un `<ul>` vacio con un id llamado `lista`.
+1. **HTML (ejercicio3.html)**: En el html he tenido que crear previamente llamado `ejercicio3.html` , he comenzado con la etructura básica utilizando el atajo html:5 donde dentro del body he puesto script donde dentro de el he puesto un src para enlazarlo con el archivo .js , el codigo cual ha quedado asi :**\<script src="Ejercicio3.js"></script>**. Después arriba de la etiqueta script he creado un input del tipo texto el cual ya sabía hacerlo del ejercicio anterior,después cree un boton con un id llamado `btnLista` y por ultimo un `<ul>` vacio con un id llamado `lista`.
 
 ###
 
@@ -386,7 +386,7 @@ Especificaciones:
 
 ## Diseño de la Propuesta de Solución
 
-1. **HTML (ejercicio3.html)**: En el html he tenido que crear previamente llamado `ejercicio5.html` , he comenzado con la etructura básica utilizando el atajo html:5 donde dentro del body he puesto script donde dentro de el he puesto un src para enlazarlo con el archivo .js , el codigo cual ha quedado asi :**\<script src="Ejercicio2.js"></script>**. Después como única modificación del html he puesto un div para que sea la sesión dedicada de la página.
+1. **HTML (ejercicio3.html)**: En el html he tenido que crear previamente llamado `ejercicio5.html` , he comenzado con la etructura básica utilizando el atajo html:5 donde dentro del body he puesto script donde dentro de el he puesto un src para enlazarlo con el archivo .js , el codigo cual ha quedado asi :**\<script src="Ejercicio5.js"></script>**. Después como única modificación del html he puesto un div para que sea la sesión dedicada de la página.
 
 ###
 
