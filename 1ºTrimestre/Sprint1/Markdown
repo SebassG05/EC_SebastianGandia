@@ -1,0 +1,13 @@
+hazme un markdown donde primero hagamos anailisis  el analisis es esto Análisis del problema: Se debe indicar en el directorio específico de la asignatura el problema que se va a resolver de una forma adecuada, es decir, no debe contener ambigüedades, debe ser simple y autocontenido.
+Diseño de la propuesta de solución del problema: Como todo aquel problema que se quiere resolver, es necesario realizar el diseño de la o las soluciones que se procederá a implementar en el siguiente paso. Para esto nos debemos ayudar de las herramientas para realizar esquemas gráficos (UML, Diagramas de flujos, etc…), además de incluir la conversación con cualquier herramienta que potencie la productividad para resolver el boletín de ejercicios (para cada ejercicio).
+Implementación del diseño propuesto: En este punto ya se procederá a implementar todo el diseño establecido en el punto anterior.
+Pruebas de la resolución del problema: Es indispensable el realizar pruebas para verificar la integridad y correcto funcionamiento de la implementación realizada, para ello simplemente compararemos si el comportamiento esperado del análisis del problema se ha implementado de forma adecuada. Vídeos en formato GIF que se puedan visualizar desde github web.
+
+Ejercicio 1: Cambio de Color con Botón
+
+- Crear una página web que contenga un botón etiquetado "Cambiar color".
+- Al hacer clic en el botón, el color de fondo de la página debe cambiar a un color aleatorio.
+- Pista: Utiliza Math.random() para generar valores RGB aleatorios.
+ENTREGAR: ejercicio1.html y ejercicio1.js
+Prueba: Vídeo GIF en Readme.md que muestre que al pulsar sobre el botón varias veces, este hace que cambie el color del fondo únicamente.
+,  el diseño es como he desarrollado el codigo es decir como lo he hecho y por ultimo pruebas que es añadiendo un gift todo esto quiero que lo hagas en un readme 
