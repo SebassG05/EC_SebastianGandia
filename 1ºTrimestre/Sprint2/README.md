@@ -96,7 +96,8 @@ A continuación, se muestra un diagrama de flujo simple que explica el proceso d
 
 ```
 
-![Descripción del GIF](Recursos/gifEjc1.gif)
+![Descripción del GIF](Recursos/giftEjc1.gif)
+![Descripción del GIF](Recursos/giftEjc12.gif)
 
 
 # Ejercicio 2:  Calculadora básica
@@ -206,7 +207,10 @@ A continuación, se muestra un diagrama de flujo simple que explica el proceso d
 
 ```
 
-![Descripción del GIF](Recursos/gifEjc2.gif)
+![Descripción del GIF](Recursos/giftEjc2.gif)
+![Descripción del GIF](Recursos/giftEjc21.gif)
+![Descripción del GIF](Recursos/giftEjc22.gif)
+![Descripción del GIF](Recursos/giftEjc23.gif)
 
 # Ejercicio 3: Encuesta con gráficos de resultados
 
@@ -349,7 +353,10 @@ A continuación, se muestra un diagrama de flujo simple que explica el proceso d
 
 ```
 
-![Descripción del GIF](Recursos/gifEjc3.gif)
+![Descripción del GIF](Recursos/giftEjc3.gif)
+![Descripción del GIF](Recursos/giftEjc31.gif)
+![Descripción del GIF](Recursos/giftEjc32.gif)
+![Descripción del GIF](Recursos/giftEjc33.gif)
 
 # Ejercicio 4:  Cronómetro con controles de inicio, pausa y reinicio
 
@@ -458,8 +465,9 @@ A continuación, se muestra un diagrama de flujo simple que explica el proceso d
 
 ```
 
-![Descripción del GIF](Recursos/gifEjc4.1.gif)
-![Descripción del GIF](Recursos/gifEjc4.gif)
+![Descripción del GIF](Recursos/giftUnido.gif)
+![Descripción del GIF](Recursos/giftEjc41.gif)
+![Descripción del GIF](Recursos/giftEjc42.gif)
 
 # Ejercicio 5:   Juego de memoria con cartas
 
@@ -572,6 +580,9 @@ A continuación, se muestra un diagrama de flujo simple que explica el proceso d
 ```
 
 ## Análisis del Problema
-![Descripción del GIF](Recursos/gifEjc5.gif)
+![Descripción del GIF](Recursos/giftEjc5.gif)
+![Descripción del GIF](Recursos/giftEjc51.gif)
+![Descripción del GIF](Recursos/giftEjc52.gif)
+![Descripción del GIF](Recursos/giftEjc53.gif)
 
 
