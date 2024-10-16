@@ -95,8 +95,9 @@ A continuación, se muestra un diagrama de flujo simple que explica el proceso d
    +------------------------+
 
 ```
-
+Rellenar el campo de tiempo con el valor 2 segundos y pulsar el botón "Iniciar", verificando que el temporizador cuenta correctamente y muestra una alerta al terminar los 2 segundos.
 ![Descripción del GIF](Recursos/giftEjc1.gif)
+Repetir la prueba con el valor 4 segundos, asegurándose de que el temporizador cuenta hasta los 4 segundos y que al finalizar se muestra la alerta correspondiente.
 ![Descripción del GIF](Recursos/giftEjc12.gif)
 
 
@@ -206,10 +207,13 @@ A continuación, se muestra un diagrama de flujo simple que explica el proceso d
    +------------------------+
 
 ```
-
+Probar que la suma de 10 + 12 muestra correctamente el resultado de 22.
 ![Descripción del GIF](Recursos/giftEjc2.gif)
+Verificar que la resta de 10 - 12 devuelve el valor esperado de -2.
 ![Descripción del GIF](Recursos/giftEjc21.gif)
+Comprobar que la multiplicación de 5x4 es 20, y que 5x0 devuelve 0.
 ![Descripción del GIF](Recursos/giftEjc22.gif)
+Probar que la división de 5/4 es 1.25 y que 5/0 devuelve el mensaje "INDEFINIDO".
 ![Descripción del GIF](Recursos/giftEjc23.gif)
 
 # Ejercicio 3: Encuesta con gráficos de resultados
@@ -352,10 +356,13 @@ A continuación, se muestra un diagrama de flujo simple que explica el proceso d
    +------------------------+
 
 ```
-
+Verificar que al seleccionar una opción y hacer clic en "Enviar", se actualicen correctamente los votos en el gráfico.
 ![Descripción del GIF](Recursos/giftEjc3.gif)
+Comprobar que el gráfico de barras se actualiza dinámicamente después de cada nueva votación.
 ![Descripción del GIF](Recursos/giftEjc31.gif)
+Probar que el sistema gestiona correctamente intentos de envío sin seleccionar ninguna opción.
 ![Descripción del GIF](Recursos/giftEjc32.gif)
+Verificar que las votaciones previas se mantienen después de varias interacciones.
 ![Descripción del GIF](Recursos/giftEjc33.gif)
 
 # Ejercicio 4:  Cronómetro con controles de inicio, pausa y reinicio
@@ -464,9 +471,11 @@ A continuación, se muestra un diagrama de flujo simple que explica el proceso d
    +------------------------+
 
 ```
-
+Probar que el cronómetro comienza a contar correctamente al hacer clic en "Iniciar".y Probar que el cronómetro maneja correctamente largos períodos de tiempo sin errores.
 ![Descripción del GIF](Recursos/giftUnido.gif)
+Comprobar que al pausar el cronómetro se detiene en el tiempo actual y no continúa avanzando.
 ![Descripción del GIF](Recursos/giftEjc41.gif)
+Verificar que al hacer clic en "Reiniciar", el cronómetro vuelve a cero.
 ![Descripción del GIF](Recursos/giftEjc42.gif)
 
 # Ejercicio 5:   Juego de memoria con cartas
@@ -580,9 +589,13 @@ A continuación, se muestra un diagrama de flujo simple que explica el proceso d
 ```
 
 ## Análisis del Problema
+Verificar que las cartas se voltean al hacer clic y se quedan volteadas si coinciden.
 ![Descripción del GIF](Recursos/giftEjc5.gif)
+Comprobar que dos cartas no coincidentes se voltean de nuevo después de un breve intervalo.
 ![Descripción del GIF](Recursos/giftEjc51.gif)
+Probar que el juego detecta cuando se han encontrado todas las parejas y muestra un mensaje de finalización.
 ![Descripción del GIF](Recursos/giftEjc52.gif)
+Verificar que el juego puede reiniciarse correctamente barajando las cartas de nuevo.
 ![Descripción del GIF](Recursos/giftEjc53.gif)
 
 
