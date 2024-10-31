@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Finder - Create Party</title>
+    <link rel="stylesheet" href="ejercicio4.css">
+</head>
+<body>
+    <h1>Create a Party</h1>
+
+    <button id="showPartiesButton">Show Parties</button>
+
+    <form id="createPartyForm">
+        <label for="partySize">Party Size:</label>
+        <select id="partySize" name="partySize" required>
+            <option value="3">3</option>
+            <option value="5">5</option>
+            <option value="8">8</option>
+        </select>
+
+        <label for="creatorId">Creator ID:</label>
+        <input type="text" id="creatorId" name="creatorId" required>
+
+        <label for="levelCap">Level Cap:</label>
+        <input type="number" id="levelCap" name="levelCap" required>
+
+        <label for="ilvlCap">Item Level Cap:</label>
+        <input type="number" id="ilvlCap" name="ilvlCap" required>
+
+        <label for="partyRole">Party Role:</label>
+        <select id="partyRole" name="partyRole" required>
+            <option value="TANK">TANK</option>
+            <option value="HEALER">HEALER</option>
+            <option value="DAMAGE">DAMAGE</option>
+            <option value="SUPPORT">SUPPORT</option>
+        </select>
+
+        <label for="plannedStart">Planned Start:</label>
+        <input type="text" id="plannedStart" name="plannedStart" placeholder="DD/MM/YYYY_HH:mm" required>
+
+        <button type="submit">Create Party</button>
+    </form>
+
+    <div id="partyList" class="hidden">
+    <h2>Created Parties</h2>
+    <div class="party-container">
+        <div id="partiesOf3" class="party-group">
+            <h3>Parties of 3 Members</h3>
+        </div>
+        <div id="partiesOf5" class="party-group">
+            <h3>Parties of 5 Members</h3>
+        </div>
+        <div id="partiesOf8" class="party-group">
+            <h3>Parties of 8 Members</h3>
+        </div>
+    </div>
+    </div>
+
+    <script src="ejercicio4.js"></script>
+</body>
+</html>

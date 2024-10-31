@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeAPI Ejercicio</title>
+    <link rel="stylesheet" href="Actividad2.css">
+</head>
+<body>
+    <h1>Información de Pokémon</h1>
+
+    <div id="infoPokemon">
+        <input type="text" id="nombrePokemon" placeholder="Nombre del Pokémon">
+        <button onclick="obtenerInfoBasicaPokemon()">Buscar</button>
+        <div id="resultadoPokemon"></div>
+    </div>
+
+    <h2>Comparativa de Pokémon</h2>
+    <div id="comparativa">
+        <input type="text" id="pokemon1" placeholder="Primer Pokémon">
+        <input type="text" id="pokemon2" placeholder="Segundo Pokémon">
+        <button onclick="compararPokemon()">Comparar</button>
+        <div id="resultadoComparativa"></div>
+    </div>
+
+    <h2>Cadenas Evolutivas</h2>
+    <div id="cadenaEvolutiva">
+        <input type="text" id="pokemonEvolutivo" placeholder="Nombre del Pokémon">
+        <button onclick="obtenerCadenaEvolutiva()">Ver Evoluciones</button>
+        <div id="resultadoEvolutivo"></div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <h2 id="tituloHabilidad"></h2>
+            <p id="descripcionHabilidad"></p>
+        </div>
+    </div>
+
+    <script src="Actividad2.js"> </script>
+</body>
+</html>

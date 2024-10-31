@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Finder</title>
+    <link rel="stylesheet" href="ejercicio5.css">
+</head>
+<body>
+    <h1>Party Finder</h1>
+    
+    <button id="createPartyButton">Create Party</button>
+    <button id="showPartiesButton">Show Parties</button>
+    
+    <div id="createPartyForm" class="hidden">
+        <h2>Create a New Party</h2>
+        <form id="partyForm">
+            <label for="partySize">Party Size:</label>
+            <select id="partySize" name="partySize" required>
+                <option value="3">3</option>
+                <option value="5">5</option>
+                <option value="8">8</option>
+            </select>
+            
+            <label for="creatorId">Creator ID:</label>
+            <input type="text" id="creatorId" name="creatorId" required>
+            
+            <label for="levelCap">Level Cap:</label>
+            <input type="number" id="levelCap" name="levelCap" required>
+            
+            <label for="ilvlCap">Item Level Cap:</label>
+            <input type="number" id="ilvlCap" name="ilvlCap" required>
+            
+            <label for="partyRole">Party Role:</label>
+            <select id="partyRole" name="partyRole" required>
+                <option value="TANK">TANK</option>
+                <option value="HEALER">HEALER</option>
+                <option value="DAMAGE">DAMAGE</option>
+                <option value="SUPPORT">SUPPORT</option>
+            </select>
+            
+            <label for="plannedStart">Planned Start (DD/MM/YYYY_HH:mm):</label>
+            <input type="text" id="plannedStart" name="plannedStart" required>
+            
+            <button type="submit">Create Party</button>
+        </form>
+        <p id="message"></p>
+    </div>
+    
+    <div id="partiesList" class="hidden">
+        <h2>Created Parties</h2>
+        <div id="partiesOf3">
+            <h3>Parties of 3 Members</h3>
+        </div>
+        <div id="partiesOf5">
+            <h3>Parties of 5 Members</h3>
+        </div>
+        <div id="partiesOf8">
+            <h3>Parties of 8 Members</h3>
+        </div>
+    </div>
+    
+    <!-- Modal for adding members -->
+    <div id="addMemberModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add Member</h2>
+            <form id="addMemberForm">
+                <input type="hidden" id="partyId" name="partyId">
+                
+                <label for="userId">User ID:</label>
+                <input type="text" id="user_id" name="user_id" required>
+                
+                <label for="role">Party Role:</label>
+                <select id="role" name="role" required>
+                    <option value="TANK">TANK</option>
+                    <option value="HEALER">HEALER</option>
+                    <option value="DAMAGE">DAMAGE</option>
+                    <option value="SUPPORT">SUPPORT</option>
+                </select>
+                
+                <button type="submit">Add Member</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="ejercicio5.js"></script>
+</body>
+</html>
