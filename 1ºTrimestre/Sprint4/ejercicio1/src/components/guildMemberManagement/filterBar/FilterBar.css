@@ -1,0 +1,21 @@
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-bar select,
+.filter-bar input[type="number"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 170px;
+}
+
+.filter-bar select:focus,
+.filter-bar input[type="number"]:focus {
+  border-color: #4a83ff;
+  outline: none;
+}

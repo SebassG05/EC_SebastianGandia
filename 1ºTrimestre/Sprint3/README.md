@@ -880,15 +880,15 @@ Parte 1: Información Básica del Pokémon
 
 
 ```
-Crear una party correctamente 
+Visualización de Parties Creadas
 ![Descripción del GIF](recursos/gif5.1.gif)
-Validación de Campos vacios
+Añadir Miembro a una Party
 ![Descripción del GIF](recursos/gif5.2.gif)
-Validaciones de fecha invalida 
+Validación de Roles al Añadir Miembro
 ![Descripción del GIF](recursos/gif5.3.gif)
-Validación de números negativos en Caps 
+Validación de Roles al Añadir Miembro
 ![Descripción del GIF](recursos/gif5.4.gif)
-Comportamiento del formulario 
+Intentar Añadir Más Miembros del Límite de la Party
 ![Descripción del GIF](recursos/gif5.5.gif)
 
 

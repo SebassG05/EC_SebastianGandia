@@ -1,0 +1,15 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.table th {
+  background-color: #da4747; /* Match the notification background color */
+  color: #fff; /* Match the notification text color */
+  text-align: left;
+}

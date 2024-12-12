@@ -1,0 +1,9 @@
+.notification-style {
+  background-color: #4a83ff;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: bold;
+}

@@ -1,0 +1,16 @@
+th {
+  cursor: pointer;
+  user-select: none;
+}
+
+th:hover {
+  background-color: #757474;
+}
+
+th.sorted-asc::after {
+  content: ' ↑';
+}
+
+th.sorted-desc::after {
+  content: ' ↓';
+}
