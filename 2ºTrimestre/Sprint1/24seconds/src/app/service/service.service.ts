@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 
 export interface Shoe {
   id: number;
@@ -133,7 +133,7 @@ export class ServiceService {
       name: 'Li-Ning Way of Wade 10',
       brand: 'Li-Ning',
       price: 220,
-      image: 'assets/images/ZapaWade.png',
+      image: 'assets/images/ZapaLi.png',
       description: 'Diseñadas por Dwyane Wade con un enfoque en el confort y el estilo.',
       bestSeller: true,
       category: 'Basketball',
@@ -151,6 +151,9 @@ export class ServiceService {
       rating: 4.4
     }
   ];
+
+  private cartItems: Shoe[] = [];
+  private cartItemsSubject = new BehaviorSubject<Shoe[]>([]);
 
   constructor() {}
 
@@ -172,11 +175,9 @@ export class ServiceService {
     return of(this.shoes.filter(shoe => shoe.price < priceLimit));
   }
 
-
   getFilteredShoes(filters: any): Observable<Shoe[]> {
     console.log('Recibido en getFilteredShoes:', filters);
 
-    // ✅ 🔹 SOLUCIÓN: Trabajar sobre una copia del array original para evitar duplicaciones
     let filteredShoes = [...this.shoes];
 
     if (filters.category && filters.category !== '') {
@@ -196,9 +197,20 @@ export class ServiceService {
     }
 
     console.log('Resultado final sin duplicar:', filteredShoes);
-    return of([...filteredShoes]); // ✅ Evitar referencias duplicadas
+    return of(filteredShoes);
   }
 
+  addToCart(shoe: Shoe) {
+    this.cartItems.push(shoe);
+    this.cartItemsSubject.next(this.cartItems);
+  }
 
+  getCartItems(): Observable<Shoe[]> {
+    return this.cartItemsSubject.asObservable();
+  }
 
+  removeFromCart(shoe: Shoe) {
+    this.cartItems = this.cartItems.filter(item => item.id !== shoe.id);
+    this.cartItemsSubject.next(this.cartItems);
+  }
 }
