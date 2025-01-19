@@ -15,7 +15,9 @@
       </div>
     </li>
     <li class="navbar-item">
-      <img src="assets/icons/usuario.png" alt="User" class="cart-icon">
+      <img src="assets/icons/usuario.png" alt="User" class="cart-icon" (click)="toggleLoginModal()">
     </li>
   </ul>
 </nav>
+
+<app-login-form [showLoginModal]="showLoginModal" (toggleLoginModal)="toggleLoginModal()"></app-login-form>
