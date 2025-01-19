@@ -1,1 +1,8 @@
 <p>validation-system works!</p>
+
+<div>
+  <label for="email">Correo Electrónico</label>
+  <input id="email" #emailInput type="email">
+  <button (click)="validateEmail(emailInput.value)">Validar</button>
+  <p *ngIf="!validateEmail(emailInput.value) && emailInput.value">El correo debe tener un formato válido.</p>
+</div>

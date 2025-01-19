@@ -1,11 +1,17 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-validation-system',
-  imports: [],
   templateUrl: './validation-system.component.html',
-  styleUrl: './validation-system.component.css'
+  styleUrls: ['./validation-system.component.css'],
+  standalone: true,
+  imports: [CommonModule]
 })
 export class ValidationSystemComponent {
 
+  validateEmail(email: string): boolean {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+  }
 }
