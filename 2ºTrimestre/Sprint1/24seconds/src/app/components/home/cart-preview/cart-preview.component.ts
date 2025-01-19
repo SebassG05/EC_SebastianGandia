@@ -1,11 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ServiceService, Shoe } from '../../../service/service.service';
 
 @Component({
   selector: 'app-cart-preview',
-  imports: [],
   templateUrl: './cart-preview.component.html',
-  styleUrl: './cart-preview.component.css'
+  styleUrls: ['./cart-preview.component.css'],
+  imports: [CommonModule]
 })
-export class CartPreviewComponent {
+export class CartPreviewComponent implements OnInit {
+  cartItems: Shoe[] = [];
 
+  constructor(private serviceService: ServiceService) {}
+
+  ngOnInit(): void {
+    this.serviceService.getCart().subscribe(items => {
+      this.cartItems = items;
+    });
+  }
+
+  removeFromCart(shoeId: number): void {
+    this.serviceService.removeFromCart(shoeId);
+  }
 }

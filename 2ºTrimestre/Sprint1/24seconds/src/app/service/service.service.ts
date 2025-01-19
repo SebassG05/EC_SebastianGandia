@@ -154,6 +154,8 @@ export class ServiceService {
 
   private cartItems: Shoe[] = [];
   private cartItemsSubject = new BehaviorSubject<Shoe[]>([]);
+  private cart: Shoe[] = [];
+  private cartSubject = new BehaviorSubject<Shoe[]>(this.cart);
 
   constructor() {}
 
@@ -203,14 +205,20 @@ export class ServiceService {
   addToCart(shoe: Shoe) {
     this.cartItems.push(shoe);
     this.cartItemsSubject.next(this.cartItems);
+    this.cart.push(shoe);
+    this.cartSubject.next(this.cart);
   }
 
   getCartItems(): Observable<Shoe[]> {
     return this.cartItemsSubject.asObservable();
   }
 
-  removeFromCart(shoe: Shoe) {
-    this.cartItems = this.cartItems.filter(item => item.id !== shoe.id);
-    this.cartItemsSubject.next(this.cartItems);
+  removeFromCart(shoeId: number): void { // Ensure this method accepts a number
+    this.cart = this.cart.filter(shoe => shoe.id !== shoeId);
+    this.cartSubject.next(this.cart);
+  }
+
+  getCart(): Observable<Shoe[]> {
+    return this.cartSubject.asObservable();
   }
 }
