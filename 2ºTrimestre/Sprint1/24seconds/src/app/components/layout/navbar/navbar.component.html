@@ -7,8 +7,12 @@
     <li class="navbar-item"><a href="/shop">Shop</a></li>
     <li class="navbar-item"><a href="/about">About Us</a></li>
     <li class="navbar-item"><a href="/contact">Contact</a></li>
-    <li class="navbar-item cart-container">
+    <li class="navbar-item cart-container" (click)="toggleCart()">
       <img src="assets/icons/carrito.png" alt="Carrito" class="cart-icon">
+      <div class="cart-dropdown" *ngIf="showCart">
+        <h3>Carrito</h3>
+        <!-- Aquí puedes agregar más contenido del carrito -->
+      </div>
     </li>
   </ul>
 </nav>
