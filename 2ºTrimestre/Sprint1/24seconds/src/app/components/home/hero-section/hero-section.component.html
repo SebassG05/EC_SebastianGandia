@@ -1,7 +1,6 @@
 <h2 *ngIf="type === 'best-sellers'">Zapatillas más vendidas</h2>
-<app-contentlist [shoes]="shoes"></app-contentlist>
+<app-contentlist *ngIf="type === 'best-sellers'" [shoes]="shoes"></app-contentlist>
 
-<!-- Sección para las zapatillas más baratas -->
 <h2 *ngIf="type === 'best-sellers'">Zapatillas más baratas</h2>
 <app-contentlist *ngIf="type === 'best-sellers'" [shoes]="cheapShoes"></app-contentlist>
 

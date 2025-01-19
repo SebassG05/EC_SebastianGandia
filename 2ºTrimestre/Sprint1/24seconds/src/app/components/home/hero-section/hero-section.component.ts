@@ -14,7 +14,7 @@ import { ContentlistComponent } from '../contentlist/contentlist.component';
 export class HeroSectionComponent implements OnInit {
   @Input() type: 'best-sellers' | 'cheapest' | 'results' = 'best-sellers';
   shoes: Shoe[] = [];
-  cheapShoes: Shoe[] = []; // Nueva variable para zapatillas baratas
+  cheapShoes: Shoe[] = [];
 
   constructor(
     private serviceService: ServiceService,
@@ -27,12 +27,14 @@ export class HeroSectionComponent implements OnInit {
     });
 
     this.route.queryParams.subscribe(params => {
+      this.shoes = [];
+      this.cheapShoes = [];
+
       if (this.type === 'best-sellers') {
         this.serviceService.getBestSellers().subscribe(data => {
           this.shoes = this.getRandomShoes(data, 4);
         });
 
-        // Cargar las zapatillas más baratas (menores a 160€)
         this.serviceService.getCheapShoesUnder(160).subscribe(data => {
           this.cheapShoes = data;
         });
@@ -51,7 +53,10 @@ export class HeroSectionComponent implements OnInit {
           maxPrice: params['maxPrice'] ? +params['maxPrice'] : 500
         };
 
+        this.shoes = [];
+
         this.serviceService.getFilteredShoes(filters).subscribe(data => {
+          console.log('Datos recibidos en HeroSectionComponent:', data);
           this.shoes = data;
         });
       }
@@ -59,7 +64,7 @@ export class HeroSectionComponent implements OnInit {
   }
 
   getRandomShoes(array: Shoe[], count: number): Shoe[] {
-    const shuffled = array.sort(() => 0.5 - Math.random());
+    const shuffled = [...array].sort(() => 0.5 - Math.random());
     return shuffled.slice(0, count);
   }
 }

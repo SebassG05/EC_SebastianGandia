@@ -176,7 +176,8 @@ export class ServiceService {
   getFilteredShoes(filters: any): Observable<Shoe[]> {
     console.log('Recibido en getFilteredShoes:', filters);
 
-    let filteredShoes = this.shoes;
+    // ✅ 🔹 SOLUCIÓN: Trabajar sobre una copia del array original para evitar duplicaciones
+    let filteredShoes = [...this.shoes];
 
     if (filters.category && filters.category !== '') {
       filteredShoes = filteredShoes.filter(shoe => shoe.category === filters.category);
@@ -194,9 +195,10 @@ export class ServiceService {
       filteredShoes = filteredShoes.filter(shoe => shoe.price >= filters.minPrice && shoe.price <= filters.maxPrice);
     }
 
-    console.log('Resultado final:', filteredShoes);
-    return of(filteredShoes);
+    console.log('Resultado final sin duplicar:', filteredShoes);
+    return of([...filteredShoes]); // ✅ Evitar referencias duplicadas
   }
+
 
 
 }
