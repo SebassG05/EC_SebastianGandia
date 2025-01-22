@@ -1,10 +1,11 @@
-
-
 <div class="login-modal" *ngIf="showLoginModal">
   <div class="login-modal-content">
     <span class="close" (click)="onToggleLoginModal()">&times;</span>
-    <h2>¿Ya tienes cuenta?</h2>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="toggle-forms">
+      <h2 [class.active]="isLoginForm" (click)="toggleForm(true)">¿Ya tienes cuenta?</h2>
+      <h2 [class.active]="!isLoginForm" (click)="toggleForm(false)">¿Eres nuevo cliente?</h2>
+    </div>
+    <form *ngIf="isLoginForm" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div>
         <label for="email">Correo Electrónico</label>
         <input id="email" formControlName="email" type="email">
@@ -25,7 +26,10 @@
         <label for="rememberMe">Remember me</label>
       </div>
       <button type="submit">Iniciar Sesión</button>
-      <a href="/forgot-password" class="forgot-password-link">¿Olvidaste tu contraseña?</a>
+      <a href="/forgot-password" target="_blank" class="forgot-password-link">¿Olvidaste tu contraseña?</a>
+
     </form>
+    <app-register-form *ngIf="!isLoginForm"></app-register-form>
+    <app-notification-system *ngIf="errorMessage" [message]="errorMessage"></app-notification-system>
   </div>
 </div>

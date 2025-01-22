@@ -15,7 +15,7 @@
   background-color: white;
   padding: 2rem;
   border-radius: 5px;
-  width: 300px;
+  width: 400px; /* Ensure the same width for both forms */
   text-align: center;
   position: relative; /* Added for positioning the close button */
 }
@@ -26,6 +26,25 @@
   right: 10px;
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+.toggle-forms {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.toggle-forms h2 {
+  cursor: pointer;
+  margin: 0;
+  padding: 0.5rem;
+  flex: 1;
+  text-align: center;
+  border-bottom: 2px solid transparent;
+}
+
+.toggle-forms h2.active {
+  border-bottom: 2px solid #007bff;
 }
 
 form {
@@ -42,7 +61,8 @@ form label {
 }
 
 form input[type="email"],
-form input[type="password"] {
+form input[type="password"],
+form input[type="text"] {
   padding: 0.5rem;
   width: 100%;
 }

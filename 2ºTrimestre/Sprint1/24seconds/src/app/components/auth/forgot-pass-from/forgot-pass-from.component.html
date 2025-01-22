@@ -1,1 +1,18 @@
-<p>forgot-pass-from works!</p>
+<div class="forgot-password-container">
+  <h2>Recuperar Contraseña</h2>
+  <form [formGroup]="forgotPasswordForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="email">Correo Electrónico</label>
+      <input id="email" formControlName="email" type="email" placeholder="Introduce tu correo">
+      <div *ngIf="forgotPasswordForm.get('email')?.invalid && forgotPasswordForm.get('email')?.touched">
+        <small *ngIf="forgotPasswordForm.get('email')?.errors?.['required']">El correo es obligatorio.</small>
+        <small *ngIf="forgotPasswordForm.get('email')?.errors?.['email']">Formato de correo no válido.</small>
+      </div>
+    </div>
+    <button type="submit">Enviar Enlace de Recuperación</button>
+  </form>
+
+  <p *ngIf="message">{{ message }}</p>
+
+  <button class="back-button" (click)="goToLogin()">Volver al Inicio de Sesión</button>
+</div>
