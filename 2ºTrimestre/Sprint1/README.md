@@ -13,7 +13,10 @@ Estos sin los elementos mínimos Independiente de la categoria
 📄 4. Detalle Resumido del Contenido (Content Card)
 📝 5. Pie de Página (Footer)
 
+Los nombres no  han sifo personalizados solo que ContentCard se llama Content Card no el nombre personalizado es decir todo esta como los nombres puestos en el doc de google
+
 ## Elementos Específicos (Categoría de Ventas)
+
 
 1. **Barra de Filtros Avanzados(ProductFilter):**
          - Filtros por categoría, precio, marca y valoración.
