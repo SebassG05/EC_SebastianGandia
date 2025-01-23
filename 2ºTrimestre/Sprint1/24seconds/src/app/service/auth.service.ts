@@ -26,12 +26,28 @@ export class AuthService {
   }
 
   register(data: any): Observable<void> {
+    console.log(`El usuario ${data.username} ha sido registrado.`);
     return of().pipe(delay(1000)); // Simula una respuesta exitosa
   }
 
   sendPasswordResetLink(email: string): Observable<boolean> {
     const registeredEmails = ['user@example.com', 'test@example.com'];
-    return of(registeredEmails.includes(email)).pipe(delay(1000));
+    const isRegistered = registeredEmails.includes(email);
+    if (!isRegistered) {
+      console.log(`El correo ${email} no está registrado.`);
+    } else {
+      console.log(`El email ${email} ha intentado recuperar su contraseña.`);
+    }
+    return of(isRegistered).pipe(delay(1000));
   }
 
+  registerUser(data: any): Observable<void> {
+    if (data.username && data.email && data.password) {
+      console.log(`El usuario ${data.username} ha sido registrado con éxito.`);
+      return of().pipe(delay(1000)); // Simula una respuesta exitosa
+    } else {
+      console.log('Datos de registro inválidos.');
+      return of().pipe(delay(1000)); // Simula una respuesta fallida
+    }
+  }
 }
