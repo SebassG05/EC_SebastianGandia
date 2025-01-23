@@ -99,7 +99,7 @@ A continuación, se muestra un diagrama de flujo simple que explica el proceso d
 
 ![Descripción Imagen](recursos/Imagen1.jpeg)
 
-![Descripción del GIF](recursos/gifPrueba1.gif)
+![Descripción del GIF](./recursos/gifPrueba1.gif)
 ###
 
 # EC
