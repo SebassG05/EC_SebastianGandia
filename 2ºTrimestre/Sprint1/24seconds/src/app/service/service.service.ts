@@ -38,7 +38,7 @@ export class ServiceService {
       description: 'Diseñadas para el estilo de juego rápido y ágil de James Harden.',
       bestSeller: true,
       category: 'Basketball',
-      rating: 4.5
+      rating: 5
     },
     {
       id: 3,
@@ -71,7 +71,7 @@ export class ServiceService {
       description: 'Zapatillas inspiradas en Luka con diseño llamativo.',
       bestSeller: false,
       category: 'Basketball',
-      rating: 4.3
+      rating: 5
     },
     {
       id: 6,

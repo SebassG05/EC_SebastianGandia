@@ -27,9 +27,9 @@
       </div>
       <button type="submit">Iniciar Sesión</button>
       <a href="/forgot-password" target="_blank" class="forgot-password-link">¿Olvidaste tu contraseña?</a>
-
     </form>
     <app-register-form *ngIf="!isLoginForm"></app-register-form>
     <app-notification-system *ngIf="errorMessage" [message]="errorMessage"></app-notification-system>
+    <app-notification-system *ngIf="successMessage" [message]="successMessage"></app-notification-system>
   </div>
 </div>

@@ -1,227 +1,312 @@
 # EC
 
-# Ejercicio 1: Panel Avanzado de Gestión de Miembros del Gremio
+# Ejercicio 1:  Implementación de la Pantalla de Inicio (Home)
 
 ## Análisis del Problema
-Este ejercicio se basa en ampliar y mejorar el sistema de gestión de miembros de la guild que ya han implementado previamente. El objetivo es crear un Panel de Gestión de Miembros más avanzado, que permita funcionalidades adicionales como filtrado, ordenamiento, selección múltiple y acciones en lote, proporcionando una interfaz más robusta y eficiente para administrar a los miembros del gremio.
+Desarrollar una Pantalla de Inicio funcional, adaptable y estéticamente atractiva, con los elementos mínimos requeridos según la categoría del proyecto seleccionada.
 
-## Requerimientos Funcionales
+Estos sin los elementos mínimos Independiente de la categoria
 
-1. **Visualización Avanzada de Miembros:**
-    - **Tabla de Miembros:**
-      - Mostrar todos los miembros del gremio en una tabla dinámica.
-      - Incluir las siguientes columnas:
-         - `user_id` (integer) (este es único)
-         - `username` (string)
-         - `level` (integer)
-         - `ilvl` (integer)
-         - `character_role` (enum: TANK, HEALER, DAMAGE, SUPPORT)
-         - `guild_role` (enum: LIDER, GERENTE SENIOR, GERENTE, GERENTE A2, ALPHA 2, MEMBER)
-         - `main_archetype` (enum: BARD, CLERIC, FIGHTER, MAGE, RANGER, ROGUE, SUMMONER, TANK)
-         - `secondary_archetype` (enum: BARD, CLERIC, FIGHTER, MAGE, RANGER, ROGUE, SUMMONER, TANK)
-         - `grandmaster_profession_one` (enum: FISHING, HERBALISM, HUNTING, LUMBERJACKING, MINING, ALCHEMY, ANIMALHUSBANDRY, COOKING, FARMING, LUMBERMILLING, METALWORKING, STONECUTTING, TANNING, WEAVING, ARCANEENGINEERING, ARMORSMITHING, CARPENTRY, JEWELCUTTING, LEATHERWORKING, SCRIBE, TAILORING, WEAPONSMITHING)
-         - `grandmaster_profession_two` (enum: FISHING, HERBALISM, HUNTING, LUMBERJACKING, MINING, ALCHEMY, ANIMALHUSBANDRY, COOKING, FARMING, LUMBERMILLING, METALWORKING, STONECUTTING, TANNING, WEAVING, ARCANEENGINEERING, ARMORSMITHING, CARPENTRY, JEWELCUTTING, LEATHERWORKING, SCRIBE, TAILORING, WEAPONSMITHING)
-      - Añadir una columna con una casilla de verificación para seleccionar miembros.
-      - Cada fila debe tener botones de Editar y Eliminar.
+🔝 1. Barra de Navegación (Navbar)
+🖼️ 2. Sección Principal (Hero Section)
+📄 3. Listado Dinámico de Contenido (Content List)
+📄 4. Detalle Resumido del Contenido (Content Card)
+📝 5. Pie de Página (Footer)
 
-2. **Filtrado y Ordenamiento:**
-    - **Barra de Filtros:**
-      - Filtrar a los miembros por:
-         - Character Role
-         - Guild Role
-         - Main Archetype
-         - Secondary Archetype
-         - Grandmaster Profession (tanto para la 1 como para la 2)
-         - Nivel mínimo y máximo
-         - Item Level mínimo y máximo
-      - Los filtros deben poder combinarse (por ejemplo, filtrar por Character Role y Level mínimo).
-    - **Ordenamiento:**
-      - Permitir ordenar la tabla por cualquiera de las columnas, tanto ascendente como descendente.
+## Elementos Específicos (Categoría de Ventas)
 
-3. **Selección Múltiple y Acciones en Lote:**
-    - **Selección Múltiple:**
-      - Los usuarios pueden seleccionar múltiples miembros utilizando las casillas de verificación.
-      - Añadir una casilla de verificación en el encabezado para seleccionar/deseleccionar todos los miembros visibles.
-    - **Acciones en Lote:**
-      - Cambiar Guild Role: Permite cambiar el rol del gremio de todos los miembros seleccionados a un rol específico.
-      - Eliminar Miembros: Permite eliminar a todos los miembros seleccionados (requiere confirmación en una alerta).
+1. **Barra de Filtros Avanzados(ProductFilter):**
+         - Filtros por categoría, precio, marca y valoración.
 
-4. **Optimización:**
-    - **Renderización Eficiente:**
-      - Implementar técnicas para evitar renderizaciones innecesarias, mejorando el rendimiento con grandes cantidades de datos.
-      - Utilizar `React.memo`, `useMemo`, y `useCallback` cuando sea apropiado.
-    - **Paginación:**
-      - Implementar paginación de la lista para manejar eficientemente listas con muchos miembros.
-      - Poner un selector para decidir si mostrar 10, 20 o 50 miembros.
+2. **Tarjetas de Producto(ContentCard):**
+         - Es el uso del “ContentCard.jsx” pero para unos de datos concretos.
+         - Imagen del producto, nombre, precio y botón Añadir al carrito, Abrir Chat o Abrir Configurador
 
-5. **Detalles de Miembro y Edición:**
-    - **Detalle de Miembro:**
-      - Al hacer clic en el Username de un miembro, se abre un Modal con detalles completos del miembro.
-    - **Edición Mejorada:**
-      - El Modal de edición debe permitir actualizar todos los campos del miembro excepto el `user_id`.
-      - Implementar validaciones avanzadas:
-         - Asegurar que los niveles (Level e ilvl) sean números enteros positivos.
-         - Evitar duplicados en `user_id`.
-
-6. **Validaciones y Manejo de Errores:**
-    - **Validaciones en Tiempo Real:**
-      - Mostrar mensajes de error mientras el usuario completa los formularios si los datos no son válidos.
-      - Deshabilitar el botón de enviar hasta que el formulario sea válido.
-    - **Manejo de Errores de API:**
-      - Mostrar mensajes de error claros si ocurre algún problema al comunicarse con la API.
-      - Manejar errores comunes como fallos de red o respuestas con códigos de error.
-
-
+3. **Resumen de Carrito(CartPreview):**
+        - Icono de carrito con resumen de productos añadidos.
 
 ## Diseño de la Propuesta de Solución
-Para resolver el problema del primer ejercicio he tenido que hacer estos pasos:
+Para cumplir con los requerimientos, se implementó una estructura modular y un diseño responsivo. El proyecto utiliza datos mockeados en los archivos .ts dentro de la carpeta services para simular llamadas a una API.:
 
-1. **Estructura del ejercicio**: En este ejercicio la estructura del ejercicio nos lo explico el profesor y de ahí fui creando la estructura poco a poco.
+1. **Estructura del ejercicio**: Organización del código en componentes reutilizables.
+
+- División en módulos para Navbar, Hero Section, Content List, Footer, y elementos específicos como filtros y tarjetas de productos.
 
 ###
 
-2. **Archivos jsx y css**: En los archivos lo que hice fue dividir el documento y ve las partes mas pequeñas para poder ir avanzando el ejercicio preguntandole miles de veces tanto a copilot y chat gpt hasta que me iba dando lo que necesitaba.
+2. **Archivos mock**: En los archivos lo que hice fue dividir el documento y ve las partes mas pequeñas para poder ir avanzando el ejercicio preguntandole a veces a copilot  hasta que me iba dando lo que necesitaba.
+
+Como por ejemplo cuando estaba con el filtrado ponia las características pero me daba todas las zaatillas de la tienda asi que tuve que preguntarle porque no se ponia el filtrado que le habia puesto
 ###
 
 ### Diagrama de Flujo
 A continuación, se muestra un diagrama de flujo simple que explica el proceso del evento:
 
 ```plaintext
-+---------------------------------------+
-| Inicio: Panel de Gestión de Miembros  |
-+---------------------------------------+
-                  |
-                  v
-+---------------------------------------+
-| Obtener lista inicial de miembros     |
-| desde la API                          |
-+---------------------------------------+
-                  |
-                  v
-+---------------------------------------+
-| Mostrar tabla dinámica con paginación |
-| usando el componente `MemberList`     |
-+---------------------------------------+
-                  |
-                  v
-+---------------------------------------+
-| Aplicar filtros y ordenamiento        |
-| usando el componente `FilterBar`      |
-| y `SortControls`                      |
-+---------------------------------------+
-                  |
-                  v
-+---------------------------------------+
-| Actualizar vista según filtros        |
-| y ordenamiento aplicado               |
-+---------------------------------------+
-                  |
-                  v
-+---------------------------------------+
-| Interacciones con la tabla:           |
-| Selección múltiple, edición,          |
-| eliminación o acciones en lote        |
-+---------------------------------------+
-   |                      |                      |
-   v                      v                      v
-+------------------+ +------------------+   +------------------+
-|Selección múltiple| Edición de miembro  |  Eliminación en lote|
-|con casillas      |con `MemberEditModal`| Verifica cambios en |
-|de verificación   | Validación y manejo |  la base de datos y |
-|Aplica acciones   | de errores de API   |  actualiza la vista |
-+------------------+ +------------------+ +------------------+
-                  |
-                  v
-+---------------------------------------+
-| Abrir modal de detalles de miembro    |
-| con `MemberDetailsModal` al hacer     |
-| clic en el Username                   |
-+---------------------------------------+
-                  |
-                  v
-+---------------------------------------+
-| Crear nuevo miembro con el botón      |
-| `CreateMember`                        |
-| Validar datos antes de enviar         |
-+---------------------------------------+
-                  |
-                  v
-+---------------------------------------+
-| Sincronizar datos actualizados con    |
-| la API y mostrar mensaje de éxito     |
-| o error                               |
-+---------------------------------------+
-                  |
-                  v
-+---------------------------------------+
-| Actualizar tabla y reflejar           |
-| cambios en tiempo real                |
-+---------------------------------------+
-                  |
-                  v
-+---------------------------------------+
-| Continuar con nuevas acciones         |
-| o salir del panel                     |
-+---------------------------------------+
-
++-----------------------------+
+| Inicio: Cargar Pantalla    |
++-----------------------------+
+              |
+              v
++-----------------------------+
+| Renderizar Navbar           |
++-----------------------------+
+              |
+              v
++-----------------------------+
+| Renderizar Hero Section     |
++-----------------------------+
+              |
+              v
++-----------------------------+
+| Obtener datos mockeados     |
+| y renderizar Content List   |
++-----------------------------+
+              |
+              v
++-----------------------------+
+| Aplicar filtros dinámicos  |
+| y actualizar vista          |
++-----------------------------+
+              |
+              v
++-----------------------------+
+| Interacción con elementos:  |
+| • Añadir al carrito         |
+| • Abrir chat/configurador   |
++-----------------------------+
+              |
+              v
++-----------------------------+
+| Mostrar Resumen de Carrito  |
++-----------------------------+
+              |
+              v
++-----------------------------+
+| Renderizar Footer           |
++-----------------------------+
 ```
-**Prueba1**: Filtrado Combinado con Ordenamiento y Acciones en Lote
+
+### Pruebas Funcionales independientemente de la categoría
+
+**Prueba:** Comprobación de elementos mínimos y específicos
 ###
-- Aplicar múltiples filtros simultáneamente (e.g., Character Role = 'DAMAGE', Guild Role = 'MEMBER', Level entre 50 y 60, Main Archetype = 'MAGE', Grandmaster Profession One = 'ALCHEMY').
-- Ordenar los resultados por ilvl en orden descendente.
-- Seleccionar todos los miembros filtrados utilizando la casilla de verificación en el encabezado.
-- Realizar una acción en lote para cambiar su Guild Role a 'GERENTE'.
-- Verificar que solo los miembros visibles y filtrados se actualizan correctamente y que la paginación refleja los cambios.
+- Navegar a la pantalla de Home.
+- Comprobar que aparecen los elementos mínimos y específicos definidos anteriormente con el detalle descrito en los diferentes enumerados.
 
-![Descripción del GIF](recursos/giftPrueba1.gif)
-###
+![Descripción Imagen](recursos/Imagen1.jpeg)
 
-**Prueba2**: Edición de Miembro con Validación en Tiempo Real y Manejo de Errores de API
-
-- Editar un miembro desde el MemberEditModal e introducir valores inválidos (e.g., Level negativo, ilvl no numérico).
-- Comprobar que las validaciones en tiempo real impiden la sumisión y muestran mensajes de error claros.
-- Simular un fallo en la API al guardar cambios válidos y verificar que el NotificationSystem informa adecuadamente sin afectar la usabilidad.
-
+![Descripción del GIF](recursos/gifPrueba1.gif)
 ###
 
-![Descripción del GIF](recursos/giftPrueba2.gif)
+# EC
+
+# Ejercicio 2: Implementación de Módulos de Autenticación (Login, Registro y Recuperación de Contraseña)
+
+## Análisis del Problema
+El objetivo de este ejercicio es desarrollar un sistema de autenticación completo para la aplicación web. Se deben implementar los componentes de Login, Registro y Recuperación de Contraseña con validaciones avanzadas, interacción con la API mockeadas y una experiencia de usuario fluida y segura.
+
+## Requerimientos Funcionales
+
+1. **Formulario de Inicio de Sesión (Login):**
+    - Campos:
+      - Correo Electrónico (Email)
+      - Contraseña (Password)
+      - Casilla de "Recordarme" (Remember Me)
+    - Botones:
+      - Iniciar Sesión
+      - ¿Olvidaste tu contraseña? (Redirige al formulario de recuperación)
+    - Validaciones:
+      - El correo debe tener un formato válido.
+      - La contraseña no puede estar vacía.
+      - Mostrar errores en tiempo real.
+    - Flujo de Inicio de Sesión:
+      - Al hacer clic en Iniciar Sesión, se debe validar el formulario.
+      - Si las credenciales son correctas (Poner por defecto el valor 4dA1Ts_2425), redirigir al panel principal.
+      - Si hay error (credenciales inválidas), mostrar mensaje claro mediante el NotificationSystem.
+
+
+2. **Formulario de Registro (Register):**
+    - Campos:
+      - Nombre de Usuario (Username)
+      - Correo Electrónico (Email)
+      - Contraseña (Password)
+      - Confirmar Contraseña
+    - Botones:
+      - Registrarse
+      - ¿Ya tienes una cuenta? Inicia Sesión (Redirige al formulario de login)
+    - Validaciones:
+      - El email con formato válido
+      - La contraseña debe tener al menos 8 caracteres, incluir una mayúscula, un número y un símbolo.
+      - Confirmar que ambas contraseñas coinciden.
+      - Verificación de duplicidad de correo o usuario mediante la API
+      - Validaciones en tiempo real.
+    - Flujo de Inicio de Sesión:
+      - Al registrarse correctamente, mostrar notificación de éxito y redirigir al login.
+      - Si ocurre un error (simularlo a mano), mostrar notificación de error.
+
+
+3. **Formulario de Recuperación de Contraseña (Forgot Password):**
+    - Campos:
+      - Correo electrónico (Email)
+    - Botones:
+      - Enviar Enlace de Recuperación
+      - Volver al Inicio de Sesión
+    - Validaciones:
+      - El correo debe tener un formato válido.
+      - Verificar si el correo está registrado.
+    - Flujo de Inicio de Sesión:
+      - Al enviar el formulario, se debe enviar una solicitud a la API (pintar por consola lo que se mandaría en la llamada) para enviar el enlace de recuperación.
+      - Mostrar notificación de éxito si se envía el correo.
+      - Mostrar error si el correo no está registrado o si falla la API. (simularlo a mano)
+
+## Diseño de la Propuesta de Solución
+La solución sigue una arquitectura basada en componentes reutilizables y modulares en React. Cada formulario (Login, Registro y Recuperación de Contraseña) se implementa como un componente independiente, mientras que las validaciones y la interacción con la API se manejan a través de utilidades externas.
+
+1. **Estructura del ejercicio**: 
+
+- LoginForm
+Renderiza el formulario de inicio de sesión.Incluye validaciones en tiempo real para correo y contraseña.Gestiona el flujo de inicio de sesión exitoso o fallido.
+
+- RegisterForm
+
+Renderiza el formulario de registro.Incluye validaciones avanzadas para contraseñas seguras y verificación de coincidencia.Simula la verificación de duplicidad con la API.
+
+-  ForgotPasswordForm
+
+Renderiza el formulario de recuperación de contraseña.Incluye validaciones de formato de correo.Simula el envío de una solicitud de recuperación a la API.
 
 ###
 
-**Prueba3**: Creación de Miembro con Duplicidad de user_id y Actualización en Tiempo Real
+2. **Archivos mock**: En los archivos lo que hice fue dividir el documento y ve las partes mas pequeñas para poder ir avanzando el ejercicio preguntandole a veces a copilot  hasta que me iba dando lo que necesitaba.
 
-- Intentar crear un nuevo miembro con un user_id que ya existe.
-- Verificar que el ValidationSystem detecta la duplicidad antes de enviar y muestra un mensaje de error claro.
-- Corregir el user_id y completar la creación.
-- Confirmar que el nuevo miembro aparece inmediatamente en la MemberList sin necesidad de recargar.
-
+Este ha sido haciendole preguntas de como hacer para cuando queria ir a te has olvidado tu contraseña que te llevase a otra pestaña 
 ###
 
-![Descripción del GIF](recursos/giftPrueba3.gif)
+### Diagrama de Flujo
+A continuación, se muestra un diagrama de flujo simple que explica el proceso del evento:
 
+```plaintext
++---------------------------------------------+
+| Inicio: Cargar Página de Autenticación      |
++---------------------------------------------+
+                    |
+                    v
++---------------------------------------------+
+| Ingresar correo y contraseña                |
+| válidos o inválidos                         |
++---------------------------------------------+
+                    |
+                    v
++---------------------------------------------+
+| Validar credenciales                        |
++---------------------------------------------+
+          |                      |
+          | Correctas            | Incorrectas
+          v                      v
++---------------------------------------------+
+| Redirigir al panel principal                |
++---------------------------------------------+
+          |                      |
+          |                      v
+          |         +-------------------------+
+          |         | Mostrar notificación    |
+          |         | de error                |
+          |         +-------------------------+
+          v
++---------------------------------------------+
+| Mostrar notificación de éxito               |
++---------------------------------------------+
+
++---------------------------------------------+
+| Registro de Usuario                         |
++---------------------------------------------+
+                    |
+                    v
++---------------------------------------------+
+| Ingresar datos inválidos (errores en        |
+| correo, contraseña o campos vacíos)         |
++---------------------------------------------+
+                    |
+                    v
++---------------------------------------------+
+| Mostrar mensajes de error en tiempo real    |
++---------------------------------------------+
+                    |
+                    v
++---------------------------------------------+
+| Corregir datos y completar registro         |
++---------------------------------------------+
+                    |
+                    v
++---------------------------------------------+
+| Mostrar notificación de éxito y redirigir   |
+| a Login                                     |
++---------------------------------------------+
+
++---------------------------------------------+
+| Recuperación de Contraseña                  |
++---------------------------------------------+
+                    |
+                    v
++---------------------------------------------+
+| Ingresar correo registrado o no registrado  |
++---------------------------------------------+
+                    |
+                    v
++---------------------------------------------+
+| Enviar solicitud de recuperación a la API   |
++---------------------------------------------+
+          |                      |
+          | Correo registrado    | Correo no registrado
+          v                      v
++---------------------------------------------+
+| Mostrar notificación de éxito               |
++---------------------------------------------+
+                               |
+                               v
+            +---------------------------------+
+            | Mostrar notificación de error  |
+            +---------------------------------+
+```
+
+### Pruebas Funcionales independientemente de la categoría
+
+**Prueba1:** Inicio de Sesión Correcto
+###
+- Ingresar un correo y contraseña válidos.
+- Hacer clic en Iniciar Sesión.
+- Verificar que el usuario es redirigido al panel principal.
+- Confirmar notificación de éxito.
+
+
+![Descripción del GIF](recursos/gifPrueba2.gif)
 ###
 
-**Prueba4**: Persistencia y Consistencia al Filtrar, Ordenar y Editar
+**Prueba2:** Error en Inicio de Sesión 
+###
+- Ingresar credenciales incorrectas.
+- Verificar que aparece una notificación de error.
 
-- Aplicar filtros y ordenamientos específicos.
-- Editar un miembro de manera que ya no cumpla con los filtros aplicados (e.g., cambiar su Level fuera del rango filtrado).
-- Comprobar que, tras guardar, el miembro desaparece de la lista filtrada y que la paginación se ajusta correctamente.
-
+![Descripción del GIF](recursos/gifPrueba3.gif)
 ###
 
-![Descripción del GIF](recursos/giftPrueba4.gif)
 
+**Prueba3:** Registro con Validaciones 
+###
+- Ingresar datos inválidos (correo incorrecto, contraseñas que no coinciden).
+- Verificar que se muestran mensajes de error en tiempo real.
+- Corregir los datos y completar el registro.
+- Verificar notificación de éxito y redirección al login.
+
+![Descripción del GIF](recursos/gifPrueba4.gif)
 ###
 
-**Prueba5**: Paginación Dinámica y Manejo de Cambios en el Conjunto de Datos
-
-- Cambiar el número de miembros mostrados por página (10, 20, 50).
-- Navegar a una página específica.
-- Aplicar un filtro que reduce el número total de páginas.
-- Verificar que la aplicación redirige a una página válida y no muestra contenido vacío o errores.
-
+**Prueba4:** Recuperación de Contraseña
 ###
+- Ingresar un correo registrado.
+- Verificar que se envía un aviso de correo de recuperación enviado.
+- Probar con un correo no registrado y verificar el mensaje de error.
 
-![Descripción del GIF](recursos/giftPrueba5.gif)
-
-
+![Descripción del GIF](recursos/gifPrueba5.gif)
+###

@@ -18,6 +18,7 @@ export class LoginFormComponent {
   @Output() toggleLoginModal = new EventEmitter<void>();
   loginForm: FormGroup;
   errorMessage: string | null = null;
+  successMessage: string | null = null;
   isLoginForm = true;
 
   constructor(
@@ -45,8 +46,11 @@ export class LoginFormComponent {
       const { email, password, rememberMe } = this.loginForm.value;
       if (this.authService.validateCredentials(email, password)) {
         // Handle remember me logic
-        this.onToggleLoginModal();
-        this.router.navigate(['/home']);
+        this.successMessage = 'Inicio de sesión exitoso. Redirigiendo a la página de inicio...';
+        setTimeout(() => {
+          this.onToggleLoginModal();
+          this.router.navigate(['/home']);
+        }, 2000);
       } else {
         // Show error message
         this.errorMessage = 'Credenciales inválidas. Por favor, inténtelo de nuevo.';
