@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { ChartConfiguration, ChartType } from 'chart.js';
+import { NgChartsModule } from 'ng2-charts';
 
 @Component({
   selector: 'app-vote',
   templateUrl: './vote.component.html',
   styleUrls: ['./vote.component.css'],
   standalone: true,
-  imports: [CommonModule]
+  imports: [CommonModule, NgChartsModule]
 })
 export class VoteComponent {
   shoes = [
@@ -16,8 +18,37 @@ export class VoteComponent {
     { name: 'Puma MB.02', image: 'assets/images/ZapaLamelo.png', votes: 0 },
   ];
 
+  public barChartOptions: ChartConfiguration['options'] = {
+    responsive: true,
+  };
+  public barChartLabels: string[] = this.shoes.map(shoe => shoe.name);
+  public barChartType: ChartType = 'bar';
+  public barChartLegend = true;
+  public barChartData: ChartConfiguration['data'] = {
+    labels: this.barChartLabels,
+    datasets: [
+      { data: this.shoes.map(shoe => shoe.votes), label: 'Votes' }
+    ]
+  };
+
+  isBrowser: boolean;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    this.isBrowser = isPlatformBrowser(platformId);
+  }
+
   voteForShoe(shoe: any) {
     shoe.votes++;
+    this.updateChartData();
     alert(`Has votado por ${shoe.name}`);
+  }
+
+  updateChartData() {
+    this.barChartData = {
+      ...this.barChartData,
+      datasets: [
+        { data: this.shoes.map(shoe => shoe.votes), label: 'Votes' }
+      ]
+    };
   }
 }
