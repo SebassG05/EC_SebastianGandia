@@ -3,11 +3,13 @@ import { HomePageComponent } from './components/home/home-page/home-page.compone
 import { HeroSectionComponent } from './components/home/hero-section/hero-section.component';
 import { ForgotPassFromComponent } from './components/auth/forgot-pass-from/forgot-pass-from.component';
 import { ProductComparisonComponent } from './components/product-comparison/product-comparison.component';
+import { VoteComponent } from './components/vote/vote.component';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'results', component: HeroSectionComponent, data: { type: 'results' } },
   { path: 'forgot-password', component: ForgotPassFromComponent },
   { path: 'compare', component: ProductComparisonComponent },
+  { path: 'vote', component: VoteComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
