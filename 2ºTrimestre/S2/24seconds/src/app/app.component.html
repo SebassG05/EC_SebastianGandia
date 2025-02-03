@@ -1,1 +1,9 @@
-<router-outlet></router-outlet>
+<div class="app-container">
+  <router-outlet></router-outlet>
+</div>
+
+<!-- Botón para abrir la encuesta de satisfacción -->
+<button class="survey-button" (click)="openSurvey()">Haz nuestra encuesta de satisfacción</button>
+
+<!-- Componente de la encuesta -->
+<app-survey *ngIf="showSurvey" (closeSurvey)="closeSurvey()"></app-survey>

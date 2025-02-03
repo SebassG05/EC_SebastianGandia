@@ -1,3 +1,20 @@
 .main-content {
   padding: 4rem 0;
 }
+
+.survey-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.survey-button:hover {
+  background-color: #0056b3;
+}
