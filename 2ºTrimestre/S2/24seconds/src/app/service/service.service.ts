@@ -86,7 +86,7 @@ export class ServiceService {
     },
     {
       id: 7,
-      name: 'New Balance TWO WXY V3',
+      name: 'New Balance TWO WXY ',
       brand: 'New Balance',
       price: 140,
       image: 'assets/images/ZapaNewBalance.png',
@@ -119,7 +119,7 @@ export class ServiceService {
     },
     {
       id: 10,
-      name: 'Anta Klay Thompson KT 7',
+      name: 'Anta Klay Thompson KT ',
       brand: 'Anta',
       price: 130,
       image: 'assets/images/ZapaKlay.png',

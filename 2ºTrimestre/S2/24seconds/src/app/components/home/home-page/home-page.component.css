@@ -2,11 +2,13 @@
   padding: 4rem 0;
 }
 
-.survey-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #007bff;
+.vote-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.vote-button {
+  background-color: #28a745;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -15,6 +17,6 @@
   font-size: 16px;
 }
 
-.survey-button:hover {
-  background-color: #0056b3;
+.vote-button:hover {
+  background-color: #218838;
 }

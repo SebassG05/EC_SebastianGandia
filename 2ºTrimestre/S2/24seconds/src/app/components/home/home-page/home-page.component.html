@@ -5,12 +5,11 @@
   <app-hero-section></app-hero-section>
 
   <!-- Aquí va el contenido principal de la página -->
+
+  <!-- Botón para votar por tus zapatillas favoritas -->
+  <div class="vote-section">
+    <button class="vote-button" (click)="navigateToVote()">Vota por tus zapas favoritas</button>
+  </div>
 </div>
-
-<!-- Botón para abrir la encuesta de satisfacción -->
-<button class="survey-button" (click)="openSurvey()">Haz nuestra encuesta de satisfacción</button>
-
-<!-- Componente de la encuesta -->
-<app-survey *ngIf="showSurvey" (closeSurvey)="closeSurvey()"></app-survey>
 
 <app-footer></app-footer>
