@@ -1,0 +1,13 @@
+<div class="comparison-container">
+  <h2>Comparación de Zapatillas</h2>
+  <div class="comparison-list">
+    <div *ngFor="let shoe of comparisonItems" class="comparison-item">
+      <img [src]="shoe.image" alt="{{ shoe.name }}">
+      <h3>{{ shoe.name }}</h3>
+      <p>Brand: {{ shoe.brand }}</p>
+      <p>Price: ${{ shoe.price }}</p>
+      <p>{{ shoe.description }}</p>
+      <p>Sizes: {{ shoe.sizes.join(', ') }}</p>
+    </div>
+  </div>
+</div>

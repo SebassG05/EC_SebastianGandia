@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 1rem;
   background-color: #333;
   color: white;
 }
@@ -10,19 +10,20 @@
 .navbar-brand a {
   color: white;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 .navbar-menu {
   list-style: none;
   display: flex;
+  gap: 1rem;
   margin: 0;
   padding: 0;
 }
 
 .navbar-item {
-  margin-left: 20px;
   position: relative;
+  margin-left: 20px;
 }
 
 .navbar-item a {
@@ -38,8 +39,9 @@
 }
 
 .cart-icon {
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
 }
 
 .cart-count {
@@ -50,18 +52,17 @@
   color: white;
   border-radius: 50%;
   padding: 2px 6px;
-  font-size: 12px;
+  font-size: 0.8rem;
 }
 
 .cart-dropdown {
   position: absolute;
-  top: 40px;
+  top: 100%;
   right: 0;
   background-color: white;
   color: black;
-  border: 1px solid #ddd;
-  padding: 10px;
-  width: 200px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  padding: 1rem;
   z-index: 1000;
 }

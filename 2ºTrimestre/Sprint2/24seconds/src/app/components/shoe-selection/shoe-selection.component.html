@@ -1,0 +1,11 @@
+<div class="card">
+  <img [src]="shoe.image" alt="{{ shoe.name }}">
+  <div class="card-content">
+    <h3>{{ shoe.name }}</h3>
+    <p>Brand: {{ shoe.brand }}</p>
+    <p>Price: ${{ shoe.price }}</p>
+    <p>{{ shoe.description }}</p>
+    <button class="add-to-cart-button" (click)="addToCart(shoe)">Añadir al carrito</button>
+    <button class="compare-button" (click)="compareShoe(shoe)">Comparar</button>
+  </div>
+</div>

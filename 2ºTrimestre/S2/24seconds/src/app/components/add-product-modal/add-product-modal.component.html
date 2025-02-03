@@ -1,0 +1,15 @@
+<div class="modal">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>Seleccionar zapatilla para comparar</h2>
+    <ul>
+      <li *ngFor="let shoe of shoes">
+        <div>
+          <img [src]="shoe.image" alt="{{ shoe.name }}">
+          <span>{{ shoe.name }} - ${{ shoe.price }}</span>
+        </div>
+        <button (click)="selectProduct(shoe)">Añadir a comparación</button>
+      </li>
+    </ul>
+  </div>
+</div>
