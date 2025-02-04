@@ -20,12 +20,16 @@
           <td>{{ product.rating }}</td>
           <td>{{ product.description }}</td>
           <td>
-            <button (click)="removeProductFromComparison(product)">Eliminar</button>
+            <button class="remove" (click)="removeProductFromComparison(product)">Eliminar</button>
+            <button (click)="addToCart(product)">Añadir al carrito</button>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
-  <button (click)="openAddProductModal()">Añadir zapatilla para comparar</button>
+  <div class="button-group">
+    <button (click)="openAddProductModal()">Añadir zapatilla para comparar</button>
+    <button (click)="navigateToHome()">Ir al inicio</button>
+  </div>
   <app-add-product-modal *ngIf="showModal" (productSelected)="onProductSelected($event)" (closeModalEvent)="closeAddProductModal()"></app-add-product-modal>
 </div>

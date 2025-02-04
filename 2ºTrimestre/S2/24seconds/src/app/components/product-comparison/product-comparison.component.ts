@@ -39,4 +39,13 @@ export class ProductComparisonComponent implements OnInit {
     this.serviceService.addToComparison(shoe);
     this.closeAddProductModal();
   }
+
+  addToCart(shoe: Shoe) {
+    this.serviceService.addToCart(shoe);
+    alert(`${shoe.name} ha sido añadido al carrito.`);
+  }
+
+  navigateToHome() {
+    this.router.navigate(['/home']);
+  }
 }
