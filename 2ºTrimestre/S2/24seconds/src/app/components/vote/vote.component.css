@@ -40,3 +40,7 @@
 .chart-container {
   margin-top: 20px;
 }
+
+.shoe-card:nth-child(2) {
+  padding-top: 49px; /* Ajusta el valor según sea necesario */
+}
