@@ -1,0 +1,8 @@
+<div class="survey-form-container">
+  <h2>{{ questions[currentQuestionIndex].title }}</h2>
+  <div class="options-grid">
+    <div *ngFor="let option of questions[currentQuestionIndex].options; let i = index" class="option-card" (click)="selectOption(i)">
+      {{ option }}
+    </div>
+  </div>
+</div>

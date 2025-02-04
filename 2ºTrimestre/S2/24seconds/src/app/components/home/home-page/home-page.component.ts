@@ -30,4 +30,8 @@ export class HomePageComponent {
   navigateToVote() {
     this.router.navigate(['/vote']);
   }
+
+  navigateToSurvey() {
+    this.router.navigate(['/survey']);
+  }
 }
