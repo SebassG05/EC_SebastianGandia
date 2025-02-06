@@ -1,6 +1,6 @@
 # EC
 
-# Ejercicio 1:  Implementación de la Pantalla de Inicio (Home)
+# Ejercicio 2:  Implementación de la Pantalla de Inicio (Home)
 
 ## Análisis del Problema
 El objetivo de este ejercicio es que el alumnado desarrolle funcionalidades interactivas avanzadas basadas en su categoría de proyecto. Se espera que implementen componentes reutilizables que permitan mejorar la experiencia del usuario mediante dashboards, comparadores, rankings, planificadores o encuestas.
