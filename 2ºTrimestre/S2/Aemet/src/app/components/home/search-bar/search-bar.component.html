@@ -1,0 +1,13 @@
+<div class="flex items-center gap-2">
+  <input
+    type="text"
+    [(ngModel)]="province"
+    placeholder="Ingrese una provincia"
+    class="p-2 border rounded-md w-full"
+  />
+  <button
+    (click)="searchWeather()"
+    class="bg-blue-500 text-white p-2 rounded-md">
+    Buscar
+  </button>
+</div>

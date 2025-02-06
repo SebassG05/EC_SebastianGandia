@@ -1,0 +1,7 @@
+<div class="weather-display" *ngIf="weather">
+  <h2>{{ weather.province }}</h2>
+  <p>Temperatura: {{ weather.temperature }}°C</p>
+  <p>Condición: {{ weather.condition }}</p>
+  <p>Viento: {{ weather.wind }} km/h</p>
+  <img [src]="weather.icon" alt="Weather Icon" />
+</div>
