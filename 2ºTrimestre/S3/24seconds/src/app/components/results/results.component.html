@@ -1,0 +1,25 @@
+<div class="results-container" *ngIf="idealShoe; else noResults">
+  <h2>Tu zapatilla ideal</h2>
+  <div class="ideal-shoe-card">
+    <img [src]="idealShoe.image" alt="{{ idealShoe.name }}">
+    <h3>{{ idealShoe.name }}</h3>
+    <p>{{ idealShoe.description }}</p>
+  </div>
+  <h2>Recomendaciones</h2>
+  <div class="recommendations-grid">
+    <div *ngFor="let shoe of recommendations" class="recommendation-card">
+      <img [src]="shoe.image" alt="{{ shoe.name }}">
+      <h3>{{ shoe.name }}</h3>
+      <p>{{ shoe.description }}</p>
+    </div>
+  </div>
+  <button (click)="navigateToHome()">Volver al inicio</button>
+</div>
+
+<ng-template #noResults>
+  <div class="no-results">
+    <h2>No se ha encontrado una zapatilla ideal para ti.</h2>
+    <p>Espera a la siguiente actualización de nuestra tienda o intenta nuevamente con diferentes opciones.</p>
+    <button (click)="navigateToHome()">Volver al inicio</button>
+  </div>
+</ng-template>

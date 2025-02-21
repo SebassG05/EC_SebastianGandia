@@ -1,0 +1,35 @@
+<div class="comparison-container">
+  <h2>Comparación de Productos</h2>
+  <div class="comparison-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Imagen</th>
+          <th>Producto</th>
+          <th>Precio</th>
+          <th>Valoración</th>
+          <th>Especificaciones</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of selectedProducts">
+          <td><img [src]="product.image" alt="{{ product.name }}"></td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.rating }}</td>
+          <td>{{ product.description }}</td>
+          <td>
+            <button class="remove" (click)="removeProductFromComparison(product)">Eliminar</button>
+            <button (click)="addToCart(product)">Añadir al carrito</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="button-group">
+    <button (click)="openAddProductModal()">Añadir zapatilla para comparar</button>
+    <button (click)="navigateToHome()">Ir al inicio</button>
+  </div>
+  <app-add-product-modal *ngIf="showModal" (productSelected)="onProductSelected($event)" (closeModalEvent)="closeAddProductModal()"></app-add-product-modal>
+</div>

@@ -1,0 +1,23 @@
+<app-navbar></app-navbar>
+
+<div class="main-content">
+  <app-product-filter (filterChange)="onFilterChange($event)"></app-product-filter>
+  <app-hero-section></app-hero-section>
+
+  <!-- Aquí va el contenido principal de la página -->
+
+  <!-- Botón para votar por tus zapatillas favoritas -->
+  <div class="vote-section">
+    <button class="vote-button" (click)="navigateToVote()">Vota por tus zapas favoritas</button>
+  </div>
+
+  <!-- Botón con imagen de fondo para iniciar el formulario -->
+  <div class="start-survey-section">
+    <button class="start-survey-button" (click)="navigateToSurvey()">
+      <img src="assets/images/backgroung.png" class="background-image">
+      <span>Encuentra tu zapatilla ideal</span>
+    </button>
+  </div>
+</div>
+
+<app-footer></app-footer>

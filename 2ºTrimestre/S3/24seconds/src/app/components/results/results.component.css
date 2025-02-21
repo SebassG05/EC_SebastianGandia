@@ -1,0 +1,40 @@
+.results-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.ideal-shoe-card, .recommendation-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+  width: 200px;
+  display: inline-block;
+}
+
+.ideal-shoe-card img, .recommendation-card img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.recommendations-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

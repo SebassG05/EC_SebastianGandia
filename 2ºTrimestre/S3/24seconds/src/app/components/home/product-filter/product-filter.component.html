@@ -1,0 +1,39 @@
+<div class="filter-container">
+  <form [formGroup]="filterForm" (ngSubmit)="applyFilters()" class="filter-form">
+    <div class="filter-group">
+      <label for="category">Categoría:</label>
+      <select id="category" formControlName="category">
+        <option value="">Todas</option>
+        <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="brand">Marca:</label>
+      <select id="brand" formControlName="brand">
+        <option value="">Todas</option>
+        <option *ngFor="let brand of brands" [value]="brand">{{ brand }}</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="rating">Valoración:</label>
+      <select id="rating" formControlName="rating">
+        <option value="0">Todas</option>
+        <option *ngFor="let rating of ratings" [value]="rating">{{ rating }} estrellas</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="minPrice">Precio Mínimo:</label>
+      <input type="number" id="minPrice" formControlName="minPrice" min="0" max="500">
+    </div>
+
+    <div class="filter-group">
+      <label for="maxPrice">Precio Máximo:</label>
+      <input type="number" id="maxPrice" formControlName="maxPrice" min="0" max="500">
+    </div>
+
+    <button type="submit" class="filter-button">Aplicar Filtros</button>
+  </form>
+</div>

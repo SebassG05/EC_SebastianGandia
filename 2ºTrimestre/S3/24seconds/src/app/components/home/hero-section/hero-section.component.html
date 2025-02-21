@@ -1,0 +1,13 @@
+<img src="assets/images/heroSection2.png" alt="Hero Banner" class="hero-banner">
+
+<h2 *ngIf="type === 'best-sellers'">Zapatillas más vendidas</h2>
+<app-contentlist *ngIf="type === 'best-sellers'" [shoes]="shoes"></app-contentlist>
+
+<h2 *ngIf="type === 'best-sellers'">Zapatillas más baratas</h2>
+<app-contentlist *ngIf="type === 'best-sellers'" [shoes]="cheapShoes"></app-contentlist>
+
+<h2 *ngIf="type === 'cheapest'">Zapatillas más baratas</h2>
+<app-contentlist *ngIf="type === 'cheapest'" [shoes]="shoes"></app-contentlist>
+
+<h2 *ngIf="type === 'results'">Estos son los resultados encontrados</h2>
+<app-contentlist *ngIf="type === 'results'" [shoes]="shoes"></app-contentlist>

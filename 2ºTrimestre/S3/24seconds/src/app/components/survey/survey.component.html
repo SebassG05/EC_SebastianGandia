@@ -1,0 +1,34 @@
+<div class="survey-overlay">
+  <div class="survey-modal">
+    <h2>Encuesta de Satisfacción</h2>
+    <form (ngSubmit)="submitSurvey()">
+      <div class="form-group">
+        <label>¿Cómo calificarías tu experiencia general?</label>
+        <select [(ngModel)]="surveyData.experience" name="experience" required>
+          <option value="" disabled selected>Selecciona una opción</option>
+          <option value="Excelente">Excelente</option>
+          <option value="Buena">Buena</option>
+          <option value="Regular">Regular</option>
+          <option value="Mala">Mala</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>¿Qué tan satisfecho estás con nuestro servicio al cliente?</label>
+        <select [(ngModel)]="surveyData.customerService" name="customerService" required>
+          <option value="" disabled selected>Selecciona una opción</option>
+          <option value="Muy satisfecho">Muy satisfecho</option>
+          <option value="Satisfecho">Satisfecho</option>
+          <option value="Neutral">Neutral</option>
+          <option value="Insatisfecho">Insatisfecho</option>
+          <option value="Muy insatisfecho">Muy insatisfecho</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Comentarios adicionales:</label>
+        <textarea [(ngModel)]="surveyData.comments" name="comments" rows="4"></textarea>
+      </div>
+      <button type="submit">Enviar</button>
+      <button type="button" (click)="close()">Cerrar</button>
+    </form>
+  </div>
+</div>
