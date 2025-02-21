@@ -1,28 +1,48 @@
 .configurator {
-  text-align: center;
-  max-width: 400px;
-  margin: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  max-width: 600px;
+  margin: auto;
+}
+
+.step-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.step-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.shoe-canvas-container {
+  display: flex;
+  justify-content: flex-start; /* Alinea la imagen a la izquierda */
 }
 
 .shoe-canvas {
   width: 400px;
   height: 400px;
   background-color: #ddd;
-  margin: 50px;
+  margin-top: 20px;
   border-radius: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-label {
-  display: block; /* Asegura que el label esté en una línea separada */
-  margin-bottom: 10px; /* Separar el label del input */
-}
 
 input[type="color"] {
   width: 100px;
   height: 40px;
   border: none;
   cursor: pointer;
-  margin-top: 5px;
 }
 
 button {
@@ -33,4 +53,8 @@ button {
   border: none;
   cursor: pointer;
   font-size: 16px;
+}
+
+h3 {
+  margin-top: 20px;
 }

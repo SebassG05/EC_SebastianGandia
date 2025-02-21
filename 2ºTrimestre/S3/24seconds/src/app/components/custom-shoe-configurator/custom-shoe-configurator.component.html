@@ -1,13 +1,30 @@
 <div class="configurator">
-  <h2>Configura tu Color</h2>
+  <h2>Configura tu Balón</h2>
+
+  <div class="step" *ngIf="!stepTwoActive">
+    <!-- Paso 1: Selector de color (izquierda) -->
+    <div class="step-left">
+      <label>Color:</label>
+      <input type="color" [(ngModel)]="selectedColor" (change)="changeColor()" [disabled]="stepTwoActive"/>
+      <button (click)="goToNextStep()">Continuar</button>
+    </div>
+  </div>
+
+  <div class="step" *ngIf="stepTwoActive">
+    <!-- Paso 2: Personalización (centro) -->
+    <div class="step-center">
+      <h3>Personaliza tu Balón</h3>
+      <label>Selecciona una pegatina:</label>
+      <select [(ngModel)]="selectedSticker">
+        <option value="sticker1">Pegatina 1</option>
+        <option value="sticker2">Pegatina 2</option>
+        <option value="sticker3">Pegatina 3</option>
+      </select>
+      <button (click)="addStickerToBall()">Añadir Pegatina</button>
+      <button (click)="addToCart()">Añadir al Carrito</button>
+    </div>
+  </div>
 
   <!-- Lienzo 3D -->
   <div #shoeCanvas class="shoe-canvas"></div>
-
-  <!-- Selector de color -->
-  <label>Color:</label>
-  <input type="color" [(ngModel)]="selectedColor" (change)="changeColor()"/>
-
-  <button (click)="navigateToNextPhase()">Continuar</button>
-
 </div>
