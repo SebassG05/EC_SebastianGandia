@@ -34,4 +34,9 @@ export class HomePageComponent {
   navigateToSurvey() {
     this.router.navigate(['/survey']);
   }
+
+  navigateToCustomShoe() {
+    this.router.navigate(['/custom-shoe']); // 👈 Redirige al configurador
+  }
+
 }

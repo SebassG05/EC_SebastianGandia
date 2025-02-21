@@ -1,0 +1,13 @@
+<div class="configurator">
+  <h2>Configura tu Color</h2>
+
+  <!-- Lienzo 3D -->
+  <div #shoeCanvas class="shoe-canvas"></div>
+
+  <!-- Selector de color -->
+  <label>Color:</label>
+  <input type="color" [(ngModel)]="selectedColor" (change)="changeColor()"/>
+
+  <button (click)="navigateToNextPhase()">Continuar</button>
+
+</div>

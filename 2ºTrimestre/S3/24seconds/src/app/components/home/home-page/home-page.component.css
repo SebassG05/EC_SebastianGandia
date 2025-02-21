@@ -51,3 +51,24 @@
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
+
+.custom-shoe-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.custom-shoe-button {
+  background: linear-gradient(to right, #ff9800, #ff5722);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
+.custom-shoe-button:hover {
+  background: linear-gradient(to right, #ff5722, #e64a19);
+}
