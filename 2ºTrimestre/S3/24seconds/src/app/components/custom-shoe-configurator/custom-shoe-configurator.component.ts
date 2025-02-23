@@ -1,4 +1,5 @@
-import { Component, ElementRef, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, AfterViewInit, ViewChild, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import * as THREE from 'three';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
 import { FormsModule } from '@angular/forms';
@@ -31,12 +32,14 @@ export class CustomShoeConfiguratorComponent implements AfterViewInit {
   stepTwoActive: boolean = false;
   stickers: { texture: string, x: number, y: number, width: number, height: number }[] = [];
 
-  constructor(private serviceService: ServiceService) {} // Inyecta el servicio
+  constructor(private serviceService: ServiceService, @Inject(PLATFORM_ID) private platformId: Object) {} // Inyecta el servicio y el PLATFORM_ID
 
   ngAfterViewInit() {
-    this.initScene();
-    this.loadBasketballModel();
-    this.animate();
+    if (isPlatformBrowser(this.platformId)) {
+      this.initScene();
+      this.loadBasketballModel();
+      this.animate();
+    }
   }
 
   initScene() {
