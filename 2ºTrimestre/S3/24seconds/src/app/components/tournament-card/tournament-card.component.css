@@ -1,0 +1,45 @@
+.tournament-card {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem;
+  text-align: left;
+  transition: background-color 0.3s, color 0.3s;
+  max-width: 800px;
+}
+
+.tournament-card.inactive {
+  background-color: #f0f0f0;
+  color: #999;
+}
+
+.tournament-image img {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+  margin-right: 1rem;
+}
+
+.tournament-details {
+  flex: 1;
+}
+
+.tournament-details h3 {
+  margin-top: 0;
+}
+
+.tournament-details button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.tournament-details button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

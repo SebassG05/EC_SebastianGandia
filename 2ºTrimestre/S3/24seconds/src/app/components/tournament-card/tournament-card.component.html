@@ -1,0 +1,12 @@
+<div class="tournament-card" [class.inactive]="!isActive">
+  <div class="tournament-image">
+    <img [src]="image" alt="{{ name }}">
+  </div>
+  <div class="tournament-details">
+    <h3>{{ name }}</h3>
+    <p>{{ description }}</p>
+    <p>Fecha de inicio: {{ startDate | date:'MMM d' }}</p>
+    <p>Fecha de fin: {{ endDate | date:'MMM d' }}</p>
+    <button [disabled]="!isActive">Inscribirse</button>
+  </div>
+</div>
