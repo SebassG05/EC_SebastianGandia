@@ -39,4 +39,7 @@ export class HomePageComponent {
     this.router.navigate(['/custom-shoe']); // 👈 Redirige al configurador
   }
 
+  navigateToTournaments() {
+    this.router.navigate(['/torneos']); // 👈 Redirige a torneos
+  }
 }

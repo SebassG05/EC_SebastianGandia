@@ -6,6 +6,7 @@ import { VoteComponent } from './components/vote/vote.component';
 import { SurveyFormComponent } from './components/survey-form/survey-form.component';
 import { ResultsComponent } from './components/results/results.component';
 import { CustomShoeConfiguratorComponent } from './components/custom-shoe-configurator/custom-shoe-configurator.component'; // 👈 IMPORTA EL COMPONENTE
+import { TorneosComponent } from './components/torneos/torneos.component';
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -15,5 +16,6 @@ export const routes: Routes = [
   { path: 'vote', component: VoteComponent },
   { path: 'survey', component: SurveyFormComponent },
   { path: 'custom-shoe', component: CustomShoeConfiguratorComponent }, // 👈 AÑADE ESTA RUTA
+  { path: 'torneos', component: TorneosComponent }, // Agrega la ruta para torneos
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
