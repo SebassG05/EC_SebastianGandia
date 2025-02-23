@@ -3,13 +3,16 @@ import * as THREE from 'three';
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { NavbarComponent } from '../layout/navbar/navbar.component';
+import { FooterComponent } from '../layout/footer/footer.component';
+import { ServiceService, Shoe } from '../../service/service.service'; // Importa el servicio
 
 @Component({
   selector: 'app-custom-shoe-configurator',
   templateUrl: './custom-shoe-configurator.component.html',
   styleUrls: ['./custom-shoe-configurator.component.css'],
   standalone: true,
-  imports: [CommonModule, FormsModule]
+  imports: [CommonModule, FormsModule, NavbarComponent, FooterComponent]
 })
 export class CustomShoeConfiguratorComponent implements AfterViewInit {
   @ViewChild('shoeCanvas', { static: true }) shoeCanvas!: ElementRef;
@@ -26,6 +29,9 @@ export class CustomShoeConfiguratorComponent implements AfterViewInit {
   };
 
   stepTwoActive: boolean = false;
+  stickers: { texture: string, x: number, y: number, width: number, height: number }[] = [];
+
+  constructor(private serviceService: ServiceService) {} // Inyecta el servicio
 
   ngAfterViewInit() {
     this.initScene();
@@ -112,8 +118,15 @@ export class CustomShoeConfiguratorComponent implements AfterViewInit {
       return; // Si el modelo no está cargado, no continuamos
     }
 
-    // Cargar la textura de la pegatina seleccionada
-    const stickerTexture = new THREE.TextureLoader().load(this.stickerTextures[this.selectedSticker]);
+    // Añadir la pegatina a la lista de pegatinas
+    const stickerPosition = this.stickers.length % 2 === 0 ? { x: 500, y: 650 } : { x: 500, y: 30 };
+    this.stickers.push({
+      texture: this.stickerTextures[this.selectedSticker],
+      x: stickerPosition.x,
+      y: stickerPosition.y,
+      width: 100,
+      height: 100
+    });
 
     // Crear un canvas para combinar las texturas
     const canvas = document.createElement('canvas');
@@ -127,31 +140,49 @@ export class CustomShoeConfiguratorComponent implements AfterViewInit {
     baseImage.onload = () => {
       context?.drawImage(baseImage, 0, 0, canvas.width, canvas.height);
 
-      // Dibujar la pegatina en una posición específica
-      const stickerImage = new Image();
-      stickerImage.src = this.stickerTextures[this.selectedSticker];
-      stickerImage.onload = () => {
-        context?.drawImage(stickerImage, 500, 650, 100, 100); // Ajusta la posición y tamaño de la pegatina
+      // Dibujar todas las pegatinas en sus posiciones específicas
+      this.stickers.forEach(sticker => {
+        const stickerImage = new Image();
+        stickerImage.src = sticker.texture;
+        stickerImage.onload = () => {
+          context?.drawImage(stickerImage, sticker.x, sticker.y, sticker.width, sticker.height);
 
-        // Crear una nueva textura a partir del canvas
-        const combinedTexture = new THREE.CanvasTexture(canvas);
+          // Crear una nueva textura a partir del canvas
+          const combinedTexture = new THREE.CanvasTexture(canvas);
 
-        // Aplicar la nueva textura al material de la pelota
-        this.ballModel.traverse((child: any) => {
-          if (child.isMesh) {
-            child.material.map = combinedTexture;
-            child.material.needsUpdate = true;
-          }
-        });
+          // Aplicar la nueva textura al material de la pelota
+          this.ballModel.traverse((child: any) => {
+            if (child.isMesh) {
+              child.material.map = combinedTexture;
+              child.material.needsUpdate = true;
+            }
+          });
 
-        console.log('Pegatina añadida al balón');
-        alert('¡Pegatina añadida al balón!');
-      };
+          console.log('Pegatina añadida al balón');
+          alert('¡Pegatina añadida al balón!');
+        };
+      });
     };
   }
 
   addToCart() {
-    console.log('Balón con color', this.selectedColor, 'añadido al carrito.');
-    alert('¡Balón añadido al carrito!');
+    const customBall: Shoe = {
+      id: 'custom-ball',
+      name: 'Custom Ball',
+      color: this.selectedColor,
+      stickers: this.stickers.map(sticker => sticker.texture),
+      brand: 'Custom Brand', // Valor predeterminado
+      price: 50, // Valor predeterminado
+      image: 'assets/images/ball.png', // Valor predeterminado
+      description: 'Personalización de una pelota de baloncesto.', // Valor predeterminado
+      bestSeller: false, // Valor predeterminado
+      category: 'Basketball', // Valor predeterminado
+      rating: 0 // Valor predeterminado
+    };
+
+    this.serviceService.addToCart(customBall).subscribe(() => {
+      console.log('Balón añadido al carrito con color', this.selectedColor);
+      alert('¡Balón añadido al carrito!');
+    });
   }
 }

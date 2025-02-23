@@ -12,8 +12,9 @@ import { Router } from '@angular/router';
 })
 export class ContentCardComponent {
   @Input() shoe: Shoe = {
-    id: 0,
+    id: '0', // Asegúrate de que el id sea de tipo string
     name: '',
+    color: '', // Asegúrate de incluir la propiedad color
     brand: '',
     price: 0,
     image: '',

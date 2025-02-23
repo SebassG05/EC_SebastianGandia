@@ -2,8 +2,10 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 
 export interface Shoe {
-  id: number;
+  id: string;
   name: string;
+  color: string;
+  stickers?: string[];
   brand: string;
   price: number;
   image: string;
@@ -19,8 +21,9 @@ export interface Shoe {
 export class ServiceService {
   private shoes: Shoe[] = [
     {
-      id: 1,
+      id: '1',
       name: 'Nike LeBron 20',
+      color: 'Red',
       brand: 'Nike',
       price: 200,
       image: 'assets/images/ZapaLebron.png',
@@ -30,8 +33,9 @@ export class ServiceService {
       rating: 5
     },
     {
-      id: 2,
+      id: '2',
       name: 'Adidas Harden Vol. 7',
+      color: 'Black',
       brand: 'Adidas',
       price: 180,
       image: 'assets/images/ZapaHarden.png',
@@ -41,8 +45,9 @@ export class ServiceService {
       rating: 5
     },
     {
-      id: 3,
+      id: '3',
       name: 'Under Armour Curry 10',
+      color: 'Blue',
       brand: 'Under Armour',
       price: 170,
       image: 'assets/images/ZapaCurry.png',
@@ -52,8 +57,9 @@ export class ServiceService {
       rating: 4.7
     },
     {
-      id: 4,
+      id: '4',
       name: 'Puma MB.02',
+      color: 'Yellow',
       brand: 'Puma',
       price: 160,
       image: 'assets/images/ZapaLamelo.png',
@@ -63,8 +69,9 @@ export class ServiceService {
       rating: 4.6
     },
     {
-      id: 5,
+      id: '5',
       name: 'Air Jordan 35',
+      color: 'White',
       brand: 'Jordan',
       price: 160,
       image: 'assets/images/ZapaLuka.png',
@@ -74,8 +81,9 @@ export class ServiceService {
       rating: 5
     },
     {
-      id: 6,
+      id: '6',
       name: 'Kobe 5 Protro',
+      color: 'Black',
       brand: 'Nike',
       price: 195,
       image: 'assets/images/ZapaKobe.png',
@@ -85,8 +93,9 @@ export class ServiceService {
       rating: 4.8
     },
     {
-      id: 7,
+      id: '7',
       name: 'New Balance TWO WXY ',
+      color: 'Green',
       brand: 'New Balance',
       price: 140,
       image: 'assets/images/ZapaNewBalance.png',
@@ -96,8 +105,9 @@ export class ServiceService {
       rating: 4.1
     },
     {
-      id: 8,
+      id: '8',
       name: 'Nike KD 15',
+      color: 'Blue',
       brand: 'Nike',
       price: 185,
       image: 'assets/images/ZapaKD.png',
@@ -107,8 +117,9 @@ export class ServiceService {
       rating: 4.7
     },
     {
-      id: 9,
+      id: '9',
       name: 'Jordan Zion 2',
+      color: 'Red',
       brand: 'Jordan',
       price: 150,
       image: 'assets/images/ZapaZion.png',
@@ -118,8 +129,9 @@ export class ServiceService {
       rating: 4.2
     },
     {
-      id: 10,
+      id: '10',
       name: 'Anta Klay Thompson KT ',
+      color: 'White',
       brand: 'Anta',
       price: 130,
       image: 'assets/images/ZapaKlay.png',
@@ -129,8 +141,9 @@ export class ServiceService {
       rating: 4.0
     },
     {
-      id: 11,
+      id: '11',
       name: 'Li-Ning Way of Wade 10',
+      color: 'Black',
       brand: 'Li-Ning',
       price: 220,
       image: 'assets/images/ZapaLi.png',
@@ -140,8 +153,9 @@ export class ServiceService {
       rating: 4.9
     },
     {
-      id: 12,
+      id: '12',
       name: 'Reebok Shaq Attaq',
+      color: 'Blue',
       brand: 'Reebok',
       price: 150,
       image: 'assets/images/ZapaShaq.png',
@@ -198,25 +212,26 @@ export class ServiceService {
     }
 
     if (filters.minPrice !== undefined && filters.maxPrice !== undefined) {
-      filteredShoes = filteredShoes.filter(shoe => shoe.price >= filters.minPrice && shoe.price <= filters.maxPrice);
+      filteredShoes = filteredShoes.filter(shoe => shoe.price >= filters.minPrice && filters.maxPrice !== undefined);
     }
 
     console.log('Resultado final sin duplicar:', filteredShoes);
     return of(filteredShoes);
   }
 
-  addToCart(shoe: Shoe) {
+  addToCart(shoe: Shoe): Observable<void> {
     this.cartItems.push(shoe);
     this.cartItemsSubject.next(this.cartItems);
     this.cart.push(shoe);
     this.cartSubject.next(this.cart);
+    return of();
   }
 
   getCartItems(): Observable<Shoe[]> {
     return this.cartItemsSubject.asObservable();
   }
 
-  removeFromCart(shoeId: number): void { // Ensure this method accepts a number
+  removeFromCart(shoeId: string): void { // Ensure this method accepts a string
     this.cart = this.cart.filter(shoe => shoe.id !== shoeId);
     this.cartSubject.next(this.cart);
   }
@@ -232,7 +247,7 @@ export class ServiceService {
     }
   }
 
-  removeFromComparison(shoeId: number): void {
+  removeFromComparison(shoeId: string): void {
     this.comparisonItems = this.comparisonItems.filter(shoe => shoe.id !== shoeId);
     this.comparisonItemsSubject.next(this.comparisonItems);
   }

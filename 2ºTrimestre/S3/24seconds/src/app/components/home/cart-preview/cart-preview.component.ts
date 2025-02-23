@@ -19,7 +19,7 @@ export class CartPreviewComponent implements OnInit {
     });
   }
 
-  removeFromCart(shoeId: number): void {
+  removeFromCart(shoeId: string): void {
     this.serviceService.removeFromCart(shoeId);
   }
 }
