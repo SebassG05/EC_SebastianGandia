@@ -1,0 +1,24 @@
+.notification {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #333; /* Cambia el fondo a un color más neutro */
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Ajusta el sombreado */
+  z-index: 1000;
+  transition: transform 0.3s, box-shadow 0.3s;
+  opacity: 0;
+  animation: showNotification 0.5s forwards;
+  font-family: Arial, sans-serif; /* Cambia la fuente */
+  font-size: 1rem; /* Ajusta el tamaño del texto */
+  text-align: center; /* Centra el texto */
+}
+
+@keyframes showNotification {
+  to {
+    opacity: 1;
+  }
+}

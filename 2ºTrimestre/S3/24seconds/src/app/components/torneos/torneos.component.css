@@ -11,5 +11,56 @@
 .tournament-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start; /* Alinea las tarjetas a la izquierda */
+  gap: 9rem; /* Aumenta el espacio entre las tarjetas */
+}
+
+.tournament-card {
+  flex: 1 1 calc(33.333% - 2rem); /* Ajusta el tamaño de las tarjetas */
+  max-width: calc(33.333% - 2rem); /* Ajusta el tamaño máximo de las tarjetas */
+}
+
+.notification {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(45deg, #00dbde, #fc00ff);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 219, 222, 0.5), 0 0 15px rgba(252, 0, 255, 0.5);
+  z-index: 99999;
+  transition: transform 0.3s, box-shadow 0.3s;
+  opacity: 0;
+  animation: showNotification 0.5s forwards;
+}
+
+
+@keyframes showNotification {
+  to {
+    opacity: 1;
+  }
+}
+
+.enrolled-tournaments {
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.enrolled-tournaments h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.enrolled-tournaments ul {
+  list-style: none;
+  padding: 0;
+}
+
+.enrolled-tournaments li {
+  background: #f0f0f0;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
 }

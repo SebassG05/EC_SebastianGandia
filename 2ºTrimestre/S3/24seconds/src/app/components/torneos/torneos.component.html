@@ -10,8 +10,19 @@
       [startDate]="tournament.startDate"
       [endDate]="tournament.endDate"
       [isActive]="isActive(tournament)"
-      [image]="tournament.image">
+      [image]="tournament.image"
+      (enroll)="enroll(tournament)">
     </app-tournament-card>
+  </div>
+  <div #notificationContainer></div> <!-- Contenedor para las notificaciones -->
+
+  <div class="enrolled-tournaments">
+    <h3>Torneos Inscritos</h3>
+    <ul>
+      <li *ngFor="let tournament of enrolledTournaments">
+        {{ tournament.name }} - {{ formatDateWithoutYear(tournament.startDate) }} a {{ formatDateWithoutYear(tournament.endDate) }}
+      </li>
+    </ul>
   </div>
 </div>
 

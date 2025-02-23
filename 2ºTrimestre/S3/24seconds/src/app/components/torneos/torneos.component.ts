@@ -1,8 +1,9 @@
-import { Component, NgZone, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit, ViewContainerRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../layout/navbar/navbar.component';
 import { FooterComponent } from '../layout/footer/footer.component';
 import { TournamentCardComponent } from '../tournament-card/tournament-card.component';
+import { NotificationComponent } from '../notification/notification.component'; // Importa el nuevo componente
 
 interface Tournament {
   name: string;
@@ -17,16 +18,24 @@ interface Tournament {
   templateUrl: './torneos.component.html',
   styleUrls: ['./torneos.component.css'],
   standalone: true,
-  imports: [CommonModule, NavbarComponent, FooterComponent, TournamentCardComponent] // Importa los componentes necesarios
+  imports: [CommonModule, NavbarComponent, FooterComponent, TournamentCardComponent] // Elimina NotificationComponent
 })
 export class TorneosComponent implements OnInit {
   tournaments: Tournament[] = [
+
     {
       name: 'Torneo 1',
-      description: 'Descripción del Torneo 1',
-      startDate: new Date('2025-02-01'),
-      endDate: new Date('2025-02-05'),
-      image: 'assets/images/tournament1.png'
+      description: 'Un emocionante torneo de baloncesto 3x3 donde equipos de todo el país compiten por el título. ¡Ven y disfruta del mejor baloncesto en un formato rápido y dinámico!',
+      startDate: new Date('2025-07-3'),
+      endDate: new Date('2025-07-19'),
+      image: 'assets/images/torneo1.png'
+    },
+    {
+      name: 'Torneo 2',
+      description: '¡Únete a la gran fiesta del baloncesto en este torneo que se celebra ininterrumpidamente desde 2018 y que, en 2025, vuelve con más fuerza que nunca! ',
+      startDate: new Date('2025-02-21'),
+      endDate: new Date('2025-02-25'),
+      image: 'assets/images/torneo2.png'
     },
     {
       name: 'Torneo 2',
@@ -38,7 +47,9 @@ export class TorneosComponent implements OnInit {
     // ...otros torneos...
   ];
 
-  constructor(private ngZone: NgZone) {}
+  enrolledTournaments: Tournament[] = [];
+
+  constructor(private ngZone: NgZone, private viewContainerRef: ViewContainerRef) {}
 
   ngOnInit(): void {
     this.ngZone.runOutsideAngular(() => {
@@ -53,6 +64,24 @@ export class TorneosComponent implements OnInit {
   isActive(tournament: Tournament): boolean {
     const today = new Date();
     return today >= tournament.startDate && today <= tournament.endDate;
+  }
+
+  enroll(tournament: Tournament): void {
+    const alreadyEnrolled = this.enrolledTournaments.some(t => t.name === tournament.name);
+    if (alreadyEnrolled) {
+      this.showNotification(`Ya estás inscrito en ${tournament.name}`);
+    } else {
+      this.enrolledTournaments.push(tournament);
+      this.showNotification(`Te has inscrito en ${tournament.name}`);
+    }
+  }
+
+  showNotification(message: string): void {
+    const componentRef = this.viewContainerRef.createComponent(NotificationComponent);
+    componentRef.instance.message = message;
+    setTimeout(() => {
+      componentRef.destroy();
+    }, 3000);
   }
 
   formatDateWithoutYear(date: Date): string {

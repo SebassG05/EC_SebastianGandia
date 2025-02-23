@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -15,4 +15,5 @@ export class TournamentCardComponent {
   @Input() endDate!: Date;
   @Input() isActive!: boolean;
   @Input() image!: string;
+  @Output() enroll = new EventEmitter<void>();
 }

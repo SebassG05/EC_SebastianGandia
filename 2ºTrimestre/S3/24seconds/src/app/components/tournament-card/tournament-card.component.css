@@ -3,7 +3,7 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 1rem;
-  margin: 1rem;
+  margin: 1rem 0; /* Ajusta el margen vertical */
   text-align: left;
   transition: background-color 0.3s, color 0.3s;
   max-width: 800px;

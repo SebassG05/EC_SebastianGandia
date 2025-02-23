@@ -7,6 +7,6 @@
     <p>{{ description }}</p>
     <p>Fecha de inicio: {{ startDate | date:'MMM d' }}</p>
     <p>Fecha de fin: {{ endDate | date:'MMM d' }}</p>
-    <button [disabled]="!isActive">Inscribirse</button>
+    <button [disabled]="!isActive" (click)="enroll.emit()">Inscribirse</button>
   </div>
 </div>
