@@ -42,4 +42,8 @@ export class HomePageComponent {
   navigateToTournaments() {
     this.router.navigate(['/torneos']); // 👈 Redirige a torneos
   }
+
+  navigateToVideos() {
+    this.router.navigate(['/videos']);
+  }
 }
