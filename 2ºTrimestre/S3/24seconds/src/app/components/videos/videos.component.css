@@ -1,1 +1,90 @@
 /* Estilos para el componente de videos */
+
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Oswald';
+}
+
+.upload-circle {
+  width: 200px; /* Size of the button */
+  height: 200px; /* Size of the button */
+  background-color: #ffffff; /* White background */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ff0000; /* Red color for the plus sign */
+  font-size: 48px; /* Font size for the plus sign */
+  cursor: pointer;
+  margin-top: 16%;
+  margin-left: 45%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  transition: transform 0.3s, box-shadow 0.3s; /* Transition effects */
+}
+
+.upload-circle:hover {
+  transform: scale(1.1); /* Scale effect on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.video-container {
+  text-align: center;
+  margin-top: 16%;
+}
+
+.video-buttons {
+  margin-top: 20px;
+}
+
+.video-buttons button {
+  background: linear-gradient(45deg, #ff0000, #ff6347); /* Gradient background */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 25px; /* Rounded corners */
+  font-size: 16px;
+  margin: 0 10px;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s; /* Transition effects */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+.video-buttons button:hover {
+  background: linear-gradient(45deg, #cc0000, #e57373); /* Darker gradient on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.vote-favorites {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.vote-favorites button {
+  background: linear-gradient(45deg, #4CAF50, #8BC34A); /* Green gradient */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 25px; /* Rounded corners */
+  font-size: 16px;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s; /* Transition effects */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+.vote-favorites button:hover {
+  background: linear-gradient(45deg, #388E3C, #689F38); /* Darker gradient on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.notification {
+  text-align: center;
+  background-color: #4CAF50; /* Green background */
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+  font-size: 16px;
+}

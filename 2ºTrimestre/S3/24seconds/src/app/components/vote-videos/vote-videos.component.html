@@ -1,0 +1,14 @@
+<h1>Vota por tus videos favoritos</h1>
+
+<!-- Videos para mostrar los archivos subidos -->
+<div *ngFor="let video of videos; let i = index" class="video-container">
+  <video [src]="video.url" controls width="600"></video>
+  <div class="rating">
+    <span *ngFor="let star of [1, 2, 3, 4, 5]" (click)="rateVideo(i, star)" [class.filled]="star <= video.rating">★</span>
+  </div>
+</div>
+
+<!-- Botón para confirmar votación -->
+<div class="confirm-vote">
+  <button (click)="confirmVote()">Confirmar Votación</button>
+</div>

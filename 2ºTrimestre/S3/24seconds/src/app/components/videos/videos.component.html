@@ -1,2 +1,32 @@
+<app-navbar></app-navbar>
+
 <h1>Sube tus videos</h1>
+
+<!-- Círculo con un signo más -->
+<div *ngIf="!videoUrl" class="upload-circle" (click)="onUploadClick()">
+  <span>+</span>
+</div>
+
+<!-- Input para seleccionar archivos -->
+<input type="file" #fileInput (change)="onFileSelected($event)" style="display: none;">
+
+<!-- Video para mostrar el archivo seleccionado -->
+<div *ngIf="videoUrl" class="video-container">
+  <video [src]="videoUrl" controls width="600"></video>
+  <div class="video-buttons">
+    <button (click)="onRemoveVideo()">Eliminar video</button>
+    <button (click)="onSubmitVideo()">Subir video</button>
+  </div>
+</div>
+
+<!-- Botón para votar por tus favoritos -->
+<div class="vote-favorites">
+  <button (click)="navigateToVote()">Vota por tus favoritos</button>
+</div>
+
+<!-- Notificación de subida -->
+<div *ngIf="showNotification" class="notification">
+  ¡Video subido con éxito!
+</div>
+
 <!-- Aquí puedes agregar el formulario o la funcionalidad para subir videos -->

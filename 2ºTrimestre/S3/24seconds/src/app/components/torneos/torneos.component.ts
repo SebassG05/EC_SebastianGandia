@@ -22,7 +22,6 @@ interface Tournament {
 })
 export class TorneosComponent implements OnInit {
   tournaments: Tournament[] = [
-
     {
       name: 'Torneo 1',
       description: 'Un emocionante torneo de baloncesto 3x3 donde equipos de todo el país compiten por el título. ¡Ven y disfruta del mejor baloncesto en un formato rápido y dinámico!',
@@ -32,17 +31,17 @@ export class TorneosComponent implements OnInit {
     },
     {
       name: 'Torneo 2',
-      description: '¡Únete a la gran fiesta del baloncesto en este torneo que se celebra ininterrumpidamente desde 2018 y que, en 2025, vuelve con más fuerza que nunca! ',
+      description: '¡Únete a la gran fiesta del baloncesto en este torneo que se celebra ininterrumpidamente desde 2018 y que, en 2025, vuelve con más fuerza que nunca!',
       startDate: new Date('2025-02-21'),
       endDate: new Date('2025-02-25'),
       image: 'assets/images/torneo2.png'
     },
     {
-      name: 'Torneo 2',
-      description: 'Descripción del Torneo 2',
+      name: 'Torneo 3',
+      description: 'Un torneo de baloncesto juvenil que reúne a los mejores equipos sub-18 de la región. ¡Ven a apoyar a las futuras estrellas del baloncesto!',
       startDate: new Date('2025-02-21'),
-      endDate: new Date('2025-02-25'),
-      image: 'assets/images/tournament2.png'
+      endDate: new Date('2025-05-25'),
+      image: 'assets/images/torneo3.png'
     },
     // ...otros torneos...
   ];

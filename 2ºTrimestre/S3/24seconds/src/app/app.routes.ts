@@ -8,6 +8,7 @@ import { ResultsComponent } from './components/results/results.component';
 import { CustomShoeConfiguratorComponent } from './components/custom-shoe-configurator/custom-shoe-configurator.component'; // 👈 IMPORTA EL COMPONENTE
 import { TorneosComponent } from './components/torneos/torneos.component';
 import { VideosComponent } from './components/videos/videos.component'; // 👈 IMPORTA EL COMPONENTE
+import { VoteVideosComponent } from './components/vote-videos/vote-videos.component'; // 👈 IMPORTA EL COMPONENTE
 
 export const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -19,5 +20,6 @@ export const routes: Routes = [
   { path: 'custom-shoe', component: CustomShoeConfiguratorComponent }, // 👈 AÑADE ESTA RUTA
   { path: 'torneos', component: TorneosComponent }, // Agrega la ruta para torneos
   { path: 'videos', component: VideosComponent }, // 👈 AÑADE ESTA RUTA
+  { path: 'voteVideos', component: VoteVideosComponent }, // 👈 AÑADE ESTA RUTA
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
