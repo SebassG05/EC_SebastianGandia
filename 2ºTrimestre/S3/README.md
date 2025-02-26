@@ -7,15 +7,20 @@
 "Como usuario, quiero poder personalizar mi balón de baloncesto eligiendo un color y una pegatina para que el balón tenga un diseño único y personal."
 
 ### 🔸 Criterios de Aceptación  
-Dado que el usuario accede a la pantalla de personalización del balón, la funcionalidad deberá permitirle:
+Caso de prueba 1:
+Dado que el usuario está en la página de personalización del balón,
+Cuando selecciona un color en el selector de color,
+Entonces el balón en el lienzo 3D debe cambiar al color seleccionado en tiempo real.
 
-- Seleccionar un color para la pelota mediante un selector de color.
-- Elegir una pegatina de una lista de opciones disponibles.
-- Añadir la pegatina seleccionada sobre la pelota en una ubicación predeterminada.
+Caso de prueba 2:
+Dado que el usuario ha seleccionado una pegatina de la lista,
+Cuando hace clic en la pegatina,
+Entonces la pegatina se debe añadir correctamente al balón en la ubicación predeterminada sobre el modelo 3D del balón.
 
-Cuando el usuario seleccione el color y la pegatina y haga clic en el botón "Continuar", el sistema deberá mostrar el balón personalizado con el color y la pegatina seleccionados en el lienzo 3D.
-
-Entonces, el balón debería reflejar los cambios de color y mostrar la pegatina correctamente, permitiendo al usuario visualizar el diseño final antes de proceder con la compra. Además, al hacer clic en "Añadir al Carrito", el sistema debería confirmar la acción y permitir continuar con la compra.
+Caso de prueba 3:
+Dado que el usuario ha personalizado su balón con un color y una pegatina,
+Cuando hace clic en "Añadir al Carrito",
+Entonces el balón se añade al carrito y se muestra en la cesta.
 
 ### 🔸 Diseño  
 🎨 **Interfaz de Usuario**  
@@ -61,15 +66,20 @@ Entonces, el balón debería reflejar los cambios de color y mostrar la pegatina
 "Como usuario, quiero poder visualizar los torneos activos, inscribirme en ellos, y saber si un torneo está desactivado para evitar intentar inscribirme en torneos que no están disponibles."
 
 ### 🔸 Criterios de Aceptación  
-Dado que el usuario está en la página de torneos, la funcionalidad deberá permitirle:
+Caso de prueba 1:
+Dado que el usuario está en la página de torneos,
+Cuando el usuario ve los torneos activos,
+Entonces los torneos activos deben mostrarse correctamente en la lista, permitiendo al usuario inscribirse en ellos.
 
-1. Ver todos los torneos disponibles, mostrando solo los torneos activos.
-2. Mostrar los torneos desactivados con un icono de "prohibido" al pasar el mouse por encima, impidiendo que el usuario intente inscribirse en ellos.
-3. Inscribirse a un torneo activo mediante un botón "Inscribirse", que cambia a "Ya Inscrito" tras la inscripción. El sistema debe mostrar una alerta de confirmación y el botón debe actualizarse dinámicamente.
+Caso de prueba 2:
+Dado que el usuario ve torneos desactivados,
+Cuando el usuario pasa el mouse por encima de un torneo desactivado,
+Entonces el torneo desactivado debe estar identificado con un icono de "prohibido" y no permitir la inscripción.
 
-Cuando el usuario acceda a la página de torneos, el sistema deberá cargar y mostrar los torneos activos y desactivados.
-
-Entonces, los torneos activos deberán ser visibles, y los desactivados deberán estar claramente identificados con un icono de "prohibido" y no permitir la inscripción. Los torneos activos deberán permitir la inscripción y actualizar el estado del botón a "Ya Inscrito" tras la inscripción.
+Caso de prueba 3:
+Dado que el usuario está inscrito en un torneo activo,
+Cuando hace clic en "Inscribirse" nuevamente,
+Entonces el sistema debe mostrar una notificación indicando que el usuario ya está inscrito en el torneo.
 
 ### 🔸 Diseño  
 🎨 **Interfaz de Usuario**  
@@ -114,26 +124,20 @@ Entonces, los torneos activos deberán ser visibles, y los desactivados deberán
 "Como usuario, quiero poder subir mis videos, ver los que ya he subido, y votar por los videos subidos por otros usuarios para compartir mis opiniones."
 
 ### 🔸 Criterios de Aceptación  
-Dado que el usuario está en la página de gestión de videos, la funcionalidad deberá permitirle:
+Caso de prueba 1:
+Dado que el usuario está en la página de subir videos,
+Cuando selecciona un archivo de video desde su dispositivo,
+Entonces el sistema debe mostrar una vista previa del video seleccionado.
 
-1. **Subir videos**  
-   - Seleccionar un video desde su dispositivo.
-   - Ver una vista previa del video seleccionado.
-   - Subir el video al sistema con una confirmación visual.
+Caso de prueba 2:
+Dado que el usuario ha subido un video,
+Cuando el usuario accede a la lista de videos subidos,
+Entonces el sistema debe mostrar correctamente la lista de videos subidos y permitir la reproducción de los mismos.
 
-2. **Ver videos subidos**  
-   - Ver una lista de los videos que ha subido.
-   - Reproducir los videos subidos desde la lista.
-
-3. **Votar por videos**  
-   - Ver los videos subidos por otros usuarios.
-   - Votar por cada video con un sistema de estrellas.
-   - Ver el promedio de votos de cada video.
-   - Al votar, redirigir al usuario al home page con una notificación de éxito.
-
-Cuando el usuario suba un video, lo vea en la lista de videos o vote por otro video, el sistema deberá permitir la visualización y la interacción de manera fluida y dinámica.
-
-Entonces, el sistema debe permitir la selección, visualización, reproducción y votación de videos de forma eficiente, asegurando que las interacciones se actualicen correctamente en tiempo real.
+Caso de prueba 3:
+Dado que el usuario ha votado por un video,
+Cuando el usuario realiza la votación,
+Entonces el sistema debe redirigir al usuario a la página principal y mostrar una notificación de éxito.
 
 ### 🔸 Diseño  
 🎨 **Interfaz de Usuario**  
